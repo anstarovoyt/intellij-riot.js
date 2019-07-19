@@ -1,10 +1,14 @@
 <idea-plugin>
     <id>riot.js</id>
     <name>Riot.js</name>
-    <vendor email="andrey.starovoyt@jetbrains.com" url="https://github.com/anstarovoyt/intellij-riot.js">Andrey Starovoyt</vendor>
-
+    <vendor email="andrey.starovoyt@jetbrains.com" url="https://github.com/anstarovoyt/intellij-riot.js">
+        Andrey Starovoyt
+    </vendor>
+    <depends>JavaScript</depends>
     <description>Riot.js</description>
 
     <extensions defaultExtensionNs="com.intellij">
+        <fileTypeFactory implementation="riot.intellij.lang.RiotFileTypeFactory"/>
+        <lang.parserDefinition language="Riot" implementationClass="riot.intellij.lang.RiotParserDefinition"/>
     </extensions>
 </idea-plugin>
