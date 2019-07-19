@@ -10,5 +10,10 @@
     <extensions defaultExtensionNs="com.intellij">
         <fileTypeFactory implementation="riot.intellij.lang.RiotFileTypeFactory"/>
         <lang.parserDefinition language="Riot" implementationClass="riot.intellij.lang.RiotParserDefinition"/>
+        
+        
+        <!-- Xml related things -->
+        <xml.elementDescriptorProvider order="first"
+                                       implementation="riot.intellij.xml.RiotComponentDescriptorProvider"/>
     </extensions>
 </idea-plugin>
