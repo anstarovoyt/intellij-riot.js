@@ -13,7 +13,7 @@ class RiotComponentDescriptorProvider : XmlElementDescriptorProvider {
             val parent = tag.parent
             //only top tags
             if (parent is PsiFile || parent is HtmlDocumentImpl) {
-                return RiotComponentXmlDescriptor(tag)
+                return RiotComponentDeclarationXmlDescriptor(tag)
             }
         }
 

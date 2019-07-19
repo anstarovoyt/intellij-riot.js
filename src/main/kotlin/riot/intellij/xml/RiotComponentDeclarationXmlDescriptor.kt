@@ -9,7 +9,7 @@ import com.intellij.xml.XmlElementDescriptor.CONTENT_TYPE_UNKNOWN
 import com.intellij.xml.XmlElementsGroup
 import com.intellij.xml.XmlNSDescriptor
 
-class RiotComponentXmlDescriptor(private val tag: XmlTag) : XmlElementDescriptor {
+class RiotComponentDeclarationXmlDescriptor(private val tag: XmlTag) : XmlElementDescriptor {
 
     private val myName = tag.name
 
