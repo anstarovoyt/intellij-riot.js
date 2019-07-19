@@ -1,0 +1,10 @@
+<idea-plugin>
+    <id>riot.js</id>
+    <name>Riot.js</name>
+    <vendor email="andrey.starovoyt@jetbrains.com" url="https://github.com/anstarovoyt/intellij-riot.js">Andrey Starovoyt</vendor>
+
+    <description>Riot.js</description>
+
+    <extensions defaultExtensionNs="com.intellij">
+    </extensions>
+</idea-plugin>
