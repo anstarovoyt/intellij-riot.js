@@ -2,6 +2,8 @@ package intellij.riot.lang
 
 import com.intellij.lang.html.HTMLParserDefinition
 import com.intellij.lang.javascript.types.JSFileElementType
+import com.intellij.lexer.Lexer
+import com.intellij.openapi.project.Project
 import com.intellij.psi.FileViewProvider
 import com.intellij.psi.PsiFile
 import com.intellij.psi.impl.source.html.HtmlFileImpl
@@ -16,6 +18,10 @@ class RiotParserDefinition : HTMLParserDefinition() {
 
     override fun createFile(viewProvider: FileViewProvider): PsiFile {
         return HtmlFileImpl(viewProvider, RIOT_FILE)
+    }
+
+    override fun createLexer(project: Project?): Lexer {
+        return RiotLexer()
     }
 
     companion object {

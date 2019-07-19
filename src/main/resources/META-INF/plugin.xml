@@ -19,6 +19,9 @@
         <lang.parserDefinition language="RiotJS" implementationClass="intellij.riot.js.RiotJSParsingDefinition"/>
         <multiHostInjector implementation="intellij.riot.js.RiotJSInjector" id="riot"/>
         <fileBasedIndex implementation="intellij.riot.xml.RiotComponentIndex"/>
+
+        <lang.syntaxHighlighterFactory language="Riot"
+                                       implementationClass="intellij.riot.lang.RiotHighlighterFactory"/>
     </extensions>
     <extensions defaultExtensionNs="JavaScript">
         <frameworkSpecificHandlersFactory language="JavaScript"
