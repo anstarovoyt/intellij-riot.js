@@ -1,4 +1,4 @@
-package riot.intellij.xml
+package intellij.riot.xml
 
 import com.intellij.lang.html.HTMLLanguage
 import com.intellij.psi.PsiFile
@@ -6,7 +6,7 @@ import com.intellij.psi.impl.source.html.HtmlDocumentImpl
 import com.intellij.psi.impl.source.xml.XmlElementDescriptorProvider
 import com.intellij.psi.xml.XmlTag
 import com.intellij.xml.XmlElementDescriptor
-import riot.intellij.lang.RiotLanguage
+import intellij.riot.lang.RiotLanguage
 
 class RiotComponentDescriptorProvider : XmlElementDescriptorProvider {
     override fun getDescriptor(tag: XmlTag?): XmlElementDescriptor? {

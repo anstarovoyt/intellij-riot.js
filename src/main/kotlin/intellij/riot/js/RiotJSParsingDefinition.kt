@@ -1,4 +1,4 @@
-package riot.intellij.js
+package intellij.riot.js
 
 import com.intellij.lang.PsiParser
 import com.intellij.lang.javascript.JavascriptParserDefinition

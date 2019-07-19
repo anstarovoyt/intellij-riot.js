@@ -8,22 +8,22 @@
     <description>Riot.js</description>
 
     <extensions defaultExtensionNs="com.intellij">
-        <fileTypeFactory implementation="riot.intellij.lang.RiotFileTypeFactory"/>
-        <lang.parserDefinition language="Riot" implementationClass="riot.intellij.lang.RiotParserDefinition"/>
+        <fileTypeFactory implementation="intellij.riot.lang.RiotFileTypeFactory"/>
+        <lang.parserDefinition language="Riot" implementationClass="intellij.riot.lang.RiotParserDefinition"/>
         
         <!-- Xml related things -->
         <xml.elementDescriptorProvider order="first"
-                                       implementation="riot.intellij.xml.RiotComponentDescriptorProvider"/>
+                                       implementation="intellij.riot.xml.RiotComponentDescriptorProvider"/>
 
 
-        <lang.parserDefinition language="RiotJS" implementationClass="riot.intellij.js.RiotJSParsingDefinition"/>
-        <multiHostInjector implementation="riot.intellij.js.RiotJSInjector" id="riot"/>
-        <fileBasedIndex implementation="riot.intellij.xml.RiotComponentIndex"/>
+        <lang.parserDefinition language="RiotJS" implementationClass="intellij.riot.js.RiotJSParsingDefinition"/>
+        <multiHostInjector implementation="intellij.riot.js.RiotJSInjector" id="riot"/>
+        <fileBasedIndex implementation="intellij.riot.xml.RiotComponentIndex"/>
     </extensions>
     <extensions defaultExtensionNs="JavaScript">
         <frameworkSpecificHandlersFactory language="JavaScript"
-                                          implementationClass="riot.intellij.js.RiotJSFrameworkSpecificHandlersFactory"/>
+                                          implementationClass="intellij.riot.js.RiotJSFrameworkSpecificHandlersFactory"/>
 
-        <intentionAndInspectionFilter language="RiotJS" implementationClass="riot.intellij.js.RiotInspectionFilter"/>
+        <intentionAndInspectionFilter language="RiotJS" implementationClass="intellij.riot.js.RiotInspectionFilter"/>
     </extensions>
 </idea-plugin>

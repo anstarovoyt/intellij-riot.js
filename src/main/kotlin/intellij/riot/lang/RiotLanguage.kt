@@ -1,4 +1,4 @@
-package riot.intellij.lang
+package intellij.riot.lang
 
 import com.intellij.lang.html.HTMLLanguage
 import com.intellij.lang.xml.XMLLanguage

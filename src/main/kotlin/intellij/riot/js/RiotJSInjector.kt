@@ -1,4 +1,4 @@
-package riot.intellij.js
+package intellij.riot.js
 
 import com.intellij.lang.injection.MultiHostInjector
 import com.intellij.lang.injection.MultiHostRegistrar

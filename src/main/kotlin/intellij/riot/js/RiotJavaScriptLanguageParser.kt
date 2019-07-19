@@ -1,4 +1,4 @@
-package riot.intellij.js
+package intellij.riot.js
 
 import com.intellij.lang.PsiBuilder
 import com.intellij.lang.ecmascript6.parsing.ES6ExpressionParser

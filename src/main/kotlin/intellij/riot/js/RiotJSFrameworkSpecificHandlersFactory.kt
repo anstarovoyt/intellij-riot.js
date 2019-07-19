@@ -1,4 +1,4 @@
-package riot.intellij.js
+package intellij.riot.js
 
 import com.intellij.lang.ecmascript6.psi.ES6ExportDefaultAssignment
 import com.intellij.lang.javascript.frameworks.JSFrameworkSpecificHandlersFactory
@@ -6,7 +6,7 @@ import com.intellij.lang.javascript.psi.*
 import com.intellij.lang.javascript.psi.ecma6.impl.TypeScriptFunctionTypeImpl
 import com.intellij.lang.javascript.psi.types.*
 import com.intellij.psi.PsiElement
-import riot.intellij.lang.RiotLanguage
+import intellij.riot.lang.RiotLanguage
 
 class RiotJSFrameworkSpecificHandlersFactory : JSFrameworkSpecificHandlersFactory {
     override fun findExpectedType(parent: PsiElement, expectedTypeKind: JSExpectedTypeKind): JSType? {

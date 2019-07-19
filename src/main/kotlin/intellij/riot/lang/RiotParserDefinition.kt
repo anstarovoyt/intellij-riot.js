@@ -1,4 +1,4 @@
-package riot.intellij.lang
+package intellij.riot.lang
 
 import com.intellij.lang.html.HTMLParserDefinition
 import com.intellij.lang.javascript.types.JSFileElementType

@@ -1,4 +1,4 @@
-package riot.intellij.lang
+package intellij.riot.lang
 
 import com.intellij.icons.AllIcons
 import com.intellij.openapi.fileTypes.LanguageFileType

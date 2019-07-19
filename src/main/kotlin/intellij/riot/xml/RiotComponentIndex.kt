@@ -1,4 +1,4 @@
-package riot.intellij.xml
+package intellij.riot.xml
 
 import com.intellij.openapi.project.DumbService
 import com.intellij.openapi.vfs.VirtualFile
@@ -10,7 +10,7 @@ import com.intellij.util.Processor
 import com.intellij.util.indexing.*
 import com.intellij.util.io.EnumeratorStringDescriptor
 import com.intellij.util.io.KeyDescriptor
-import riot.intellij.lang.RiotFileType
+import intellij.riot.lang.RiotFileType
 
 
 class RiotComponentIndex : ScalarIndexExtension<String>() {
