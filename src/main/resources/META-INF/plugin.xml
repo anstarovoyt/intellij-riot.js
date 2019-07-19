@@ -10,10 +10,13 @@
     <extensions defaultExtensionNs="com.intellij">
         <fileTypeFactory implementation="riot.intellij.lang.RiotFileTypeFactory"/>
         <lang.parserDefinition language="Riot" implementationClass="riot.intellij.lang.RiotParserDefinition"/>
-        
-        
+
         <!-- Xml related things -->
         <xml.elementDescriptorProvider order="first"
                                        implementation="riot.intellij.xml.RiotComponentDescriptorProvider"/>
+    </extensions>
+    <extensions defaultExtensionNs="JavaScript">
+        <frameworkSpecificHandlersFactory language="JavaScript"
+                                          implementationClass="riot.intellij.js.RiotJSFrameworkSpecificHandlersFactory"/>
     </extensions>
 </idea-plugin>
