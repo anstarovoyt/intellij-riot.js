@@ -7,6 +7,7 @@ import com.intellij.xml.XmlAttributeDescriptor
 import com.intellij.xml.XmlElementDescriptor
 import com.intellij.xml.XmlElementsGroup
 import com.intellij.xml.XmlNSDescriptor
+import com.intellij.xml.impl.schema.AnyXmlAttributeDescriptor
 
 class RiotComponentXmlDescriptor(private val declaration: PsiElement, private val tagName: String) : XmlElementDescriptor {
 
@@ -22,7 +23,7 @@ class RiotComponentXmlDescriptor(private val declaration: PsiElement, private va
     override fun getQualifiedName(): String = name
     override fun getElementDescriptor(p0: XmlTag?, p1: XmlTag?): XmlElementDescriptor? = null
     override fun getDeclaration(): PsiElement? = declaration
-    override fun getAttributeDescriptor(p0: String?, p1: XmlTag?): XmlAttributeDescriptor? = null
-    override fun getAttributeDescriptor(p0: XmlAttribute?): XmlAttributeDescriptor? = null
+    override fun getAttributeDescriptor(name: String?, p1: XmlTag?): XmlAttributeDescriptor? = AnyXmlAttributeDescriptor(name)
+    override fun getAttributeDescriptor(p0: XmlAttribute): XmlAttributeDescriptor? = AnyXmlAttributeDescriptor(p0.name)
     override fun getAttributesDescriptors(p0: XmlTag?): Array<XmlAttributeDescriptor> = emptyArray()
 }

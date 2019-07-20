@@ -14,23 +14,26 @@ class RiotComponentDescriptorProvider : XmlElementDescriptorProvider {
         if (tag == null) return null
         val name = tag.name
         val language = tag.containingFile?.language
-        if (language == RiotLanguage.INSTANCE) {
-            val parent = tag.parent
-
-            if (parent is PsiFile || parent is HtmlDocumentImpl) {
-                //only top tags
-                return RiotComponentDeclarationXmlDescriptor(tag)
-            }
-            val defaultDescriptor: XmlNSDescriptor? = tag.getNSDescriptor(tag.namespace, false)
-
-            return RiotElementXmlDescriptor(defaultDescriptor, tag, name)
-        }
-        if (language == HTMLLanguage.INSTANCE) {
-
-            val componentTag = RiotComponentIndex.findComponent(name, tag) ?: return null
-            return RiotComponentXmlDescriptor(componentTag, name)
+        if (language != RiotLanguage.INSTANCE) {
+            return if (language == HTMLLanguage.INSTANCE) findRiotComponent(name, tag) else null
         }
 
-        return null
+        val parent = tag.parent
+
+        if (parent is PsiFile || parent is HtmlDocumentImpl) {
+            //only top tags
+            return RiotComponentDeclarationXmlDescriptor(tag)
+        }
+        val candidate = findRiotComponent(name, tag)
+        if (candidate != null) return candidate
+
+        val defaultDescriptor: XmlNSDescriptor? = tag.getNSDescriptor(tag.namespace, false)
+
+        return RiotElementXmlDescriptor(defaultDescriptor, tag, name)
+    }
+
+    private fun findRiotComponent(name: String, tag: XmlTag): RiotComponentXmlDescriptor? {
+        val componentTag = RiotComponentIndex.findComponent(name, tag) ?: return null
+        return RiotComponentXmlDescriptor(componentTag, name)
     }
 }
