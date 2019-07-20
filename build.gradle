@@ -19,7 +19,7 @@ dependencies {
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     version 'IU-LATEST-EAP-SNAPSHOT'
-    plugins = ['JavaScriptLanguage']
+    plugins = ['JavaScriptLanguage', "CSS"]
     pluginName 'riot.js'
     downloadSources false
     updateSinceUntilBuild false
