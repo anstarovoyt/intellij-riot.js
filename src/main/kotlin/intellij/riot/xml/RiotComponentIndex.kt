@@ -10,7 +10,7 @@ import com.intellij.util.Processor
 import com.intellij.util.indexing.*
 import com.intellij.util.io.EnumeratorStringDescriptor
 import com.intellij.util.io.KeyDescriptor
-import intellij.riot.lang.RiotFileType
+import intellij.riot.lang.IRiotFileType
 
 
 class RiotComponentIndex : ScalarIndexExtension<String>() {
@@ -38,7 +38,7 @@ class RiotComponentIndex : ScalarIndexExtension<String>() {
     override fun getVersion(): Int = 0
     override fun dependsOnFileContent(): Boolean = true
     override fun getIndexer(): DataIndexer<String, Void, FileContent> = Indexer()
-    override fun getInputFilter(): FileBasedIndex.InputFilter = DefaultFileTypeSpecificInputFilter(RiotFileType.INSTANCE)
+    override fun getInputFilter(): FileBasedIndex.InputFilter = FileBasedIndex.InputFilter { file -> file.fileType is IRiotFileType }
     override fun getKeyDescriptor(): KeyDescriptor<String> = EnumeratorStringDescriptor.INSTANCE;
 
     class Indexer() : DataIndexer<String, Void, FileContent> {

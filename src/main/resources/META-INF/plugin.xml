@@ -9,6 +9,7 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <fileTypeFactory implementation="intellij.riot.lang.RiotFileTypeFactory"/>
+        <fileTypeFactory implementation="intellij.riot.lang.v3.Riot3FileTypeFactory"/>
         <lang.parserDefinition language="Riot" implementationClass="intellij.riot.lang.RiotParserDefinition"/>
         
         <!-- Xml related things -->

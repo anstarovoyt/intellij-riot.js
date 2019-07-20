@@ -3,7 +3,7 @@ package intellij.riot.js
 import com.intellij.codeInsight.daemon.ImplicitUsageProvider
 import com.intellij.lang.ecmascript6.psi.ES6ExportDefaultAssignment
 import com.intellij.psi.PsiElement
-import intellij.riot.lang.RiotFileType
+import intellij.riot.lang.IRiotFileType
 
 class RiotImplicitUsageProvider : ImplicitUsageProvider {
     override fun isImplicitUsage(psiElement: PsiElement): Boolean {
@@ -14,7 +14,7 @@ class RiotImplicitUsageProvider : ImplicitUsageProvider {
         if (psiElement !is ES6ExportDefaultAssignment) return false
 
 
-        return psiElement.containingFile.fileType == RiotFileType.INSTANCE
+        return psiElement.containingFile.fileType is IRiotFileType
     }
 
     override fun isImplicitWrite(psiElement: PsiElement): Boolean {
