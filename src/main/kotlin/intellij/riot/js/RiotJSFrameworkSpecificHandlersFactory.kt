@@ -8,9 +8,7 @@ import com.intellij.psi.PsiElement
 import intellij.riot.lang.RiotLanguage
 
 class RiotJSFrameworkSpecificHandlersFactory : JSFrameworkSpecificHandlersFactory {
-    override fun findExpectedType(parent: PsiElement, expectedTypeKind: JSExpectedTypeKind): JSType? {
-        if (parent !is JSElement) return null
-
+    override fun findExpectedType(parent: JSExpression, expectedTypeKind: JSExpectedTypeKind): JSType? {
         val containingFile = parent.containingFile
         if (containingFile.language !is RiotLanguage ||
                 parent !is JSObjectLiteralExpression ||

@@ -1,11 +1,22 @@
 <idea-plugin>
     <id>riot.js</id>
     <name>Riot.js</name>
+    <version>1.0.1</version>
     <vendor email="andrey.starovoyt@jetbrains.com" url="https://github.com/anstarovoyt/intellij-riot.js">
         Andrey Starovoyt
     </vendor>
     <depends>JavaScript</depends>
-    <description>Riot.js</description>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.xml</depends>
+    <idea-version since-build="191" until-build="192.*"/>
+    <description><![CDATA[
+        Riot.js plugin. Provides base support:
+<ul>
+<li>Support for ".riot" and ".tag" extensions</code>
+<li>Parsing expressions inside xml-tags</code>
+<li>Navigation based on component names</code>
+</ul>
+    ]]></description>
 
     <extensions defaultExtensionNs="com.intellij">
         <fileTypeFactory implementation="intellij.riot.lang.RiotFileTypeFactory"/>
