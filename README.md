@@ -13,11 +13,11 @@ To install the plugin open the IDE Preferences | Plugins, then click Browse repo
 * Parsing expressions inside xml-tags
 * Navigation based on component names
 
+![Example](example.png)
+
 
 ## Known issues
 
 * Riot 1,2,3 script tags are not supported
 * Expression parsing uses pure stategy and doesn't allow nested braces "{" and "}"
-
-
 
