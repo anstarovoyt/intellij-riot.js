@@ -21,6 +21,8 @@
 
         <lang.syntaxHighlighterFactory language="Riot"
                                        implementationClass="intellij.riot.lang.RiotHighlighterFactory"/>
+        <stubElementTypeHolder class="intellij.riot.js.RiotElements" />
+        <implicitUsageProvider implementation="intellij.riot.js.RiotImplicitUsageProvider"/>
     </extensions>
     <extensions defaultExtensionNs="JavaScript">
         <frameworkSpecificHandlersFactory language="JavaScript"

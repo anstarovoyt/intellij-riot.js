@@ -1,7 +1,6 @@
 package intellij.riot.js
 
 import com.intellij.codeInspection.InspectionProfileEntry
-import com.intellij.codeInspection.htmlInspections.HtmlUnknownBooleanAttributeInspection
 import com.intellij.lang.javascript.highlighting.IntentionAndInspectionFilter
 import com.sixrr.inspectjs.validity.BadExpressionStatementJSInspection
 

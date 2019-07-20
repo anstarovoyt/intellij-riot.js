@@ -13,11 +13,6 @@ class RiotJSLanguage : JSLanguageDialect("RiotJS", DialectOptionHolder.ECMA_6, J
 
     companion object {
         val INSTANCE = RiotJSLanguage()
-        val EMBEDDED_JS: JSEmbeddedContentElementType by lazy {
-            object : JSEmbeddedContentElementType(INSTANCE, "RiotJS") {
-                override fun createStripperLexer(baseLanguage: Language): Lexer? = null
-            }
-        }
     }
 
     override fun getFileExtension(): String = "js"
