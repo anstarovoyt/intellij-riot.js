@@ -6,21 +6,27 @@ import com.intellij.psi.impl.source.html.HtmlDocumentImpl
 import com.intellij.psi.impl.source.xml.XmlElementDescriptorProvider
 import com.intellij.psi.xml.XmlTag
 import com.intellij.xml.XmlElementDescriptor
+import com.intellij.xml.XmlNSDescriptor
 import intellij.riot.lang.RiotLanguage
 
 class RiotComponentDescriptorProvider : XmlElementDescriptorProvider {
     override fun getDescriptor(tag: XmlTag?): XmlElementDescriptor? {
         if (tag == null) return null
+        val name = tag.name
         val language = tag.containingFile?.language
         if (language == RiotLanguage.INSTANCE) {
             val parent = tag.parent
-            //only top tags
+
             if (parent is PsiFile || parent is HtmlDocumentImpl) {
+                //only top tags
                 return RiotComponentDeclarationXmlDescriptor(tag)
             }
+            val defaultDescriptor: XmlNSDescriptor? = tag.getNSDescriptor(tag.namespace, false)
+
+            return RiotElementXmlDescriptor(defaultDescriptor, tag, name)
         }
         if (language == HTMLLanguage.INSTANCE) {
-            val name = tag.name
+
             val componentTag = RiotComponentIndex.findComponent(name, tag) ?: return null
             return RiotComponentXmlDescriptor(componentTag, name)
         }

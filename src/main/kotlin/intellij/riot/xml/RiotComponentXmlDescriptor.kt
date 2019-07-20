@@ -1,7 +1,6 @@
 package intellij.riot.xml
 
 import com.intellij.psi.PsiElement
-import com.intellij.psi.PsiFile
 import com.intellij.psi.xml.XmlAttribute
 import com.intellij.psi.xml.XmlTag
 import com.intellij.xml.XmlAttributeDescriptor
