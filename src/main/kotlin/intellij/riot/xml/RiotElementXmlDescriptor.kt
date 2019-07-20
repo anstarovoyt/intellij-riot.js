@@ -9,6 +9,8 @@ import com.intellij.xml.XmlElementsGroup
 import com.intellij.xml.XmlNSDescriptor
 import com.intellij.xml.impl.schema.AnyXmlAttributeDescriptor
 
+val riotSpecialTags = setOf("slot", "then", "else", "elseif", "if", "yield")
+
 class RiotElementXmlDescriptor(private val parentNSDescriptor: XmlNSDescriptor?, private val tag: XmlTag, private val tagName: String) : XmlElementDescriptor {
 
     override fun getDefaultValue(): String? = null
@@ -22,7 +24,10 @@ class RiotElementXmlDescriptor(private val parentNSDescriptor: XmlNSDescriptor?,
     override fun getNSDescriptor(): XmlNSDescriptor? = parentNSDescriptor
     override fun getQualifiedName(): String = name
     override fun getElementDescriptor(p0: XmlTag?, p1: XmlTag?): XmlElementDescriptor? = getXmlElementDescriptorFormParent(p1)?.getElementDescriptor(p0, p1)
-    override fun getDeclaration(): PsiElement? = getXmlElementDescriptorFormParent(tag)?.declaration
+    override fun getDeclaration(): PsiElement? {
+        return if (riotSpecialTags.contains(name)) tag else getXmlElementDescriptorFormParent(tag)?.declaration
+    }
+
     override fun getAttributeDescriptor(p0: XmlAttribute?): XmlAttributeDescriptor? = getAttributeDescriptor(p0?.name, null)
     override fun getAttributesDescriptors(p0: XmlTag?): Array<XmlAttributeDescriptor>? = getXmlElementDescriptorFormParent(p0)?.getAttributesDescriptors(p0)
 
@@ -38,5 +43,4 @@ class RiotElementXmlDescriptor(private val parentNSDescriptor: XmlNSDescriptor?,
     private fun getXmlElementDescriptorFormParent(context: XmlTag?): XmlElementDescriptor? {
         return parentNSDescriptor?.getElementDescriptor(context ?: tag)
     }
-
 }
