@@ -1,9 +1,8 @@
 package intellij.riot
 
-import com.intellij.testFramework.fixtures.BasePlatformTestCase
 import intellij.riot.lang.RiotHtmlFileType
 
-class RiotInterpolationTest : BasePlatformTestCase() {
+class RiotInterpolationTest : RiotTestBase() {
     fun testSimple() {
         myFixture.configureByText(
                 RiotHtmlFileType.INSTANCE,

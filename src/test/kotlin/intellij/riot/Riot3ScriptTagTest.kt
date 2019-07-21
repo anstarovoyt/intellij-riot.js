@@ -1,15 +1,8 @@
 package intellij.riot
 
-import com.intellij.codeInspection.htmlInspections.HtmlUnknownAttributeInspection
-import com.intellij.codeInspection.htmlInspections.HtmlUnknownTagInspection
-import com.intellij.testFramework.fixtures.BasePlatformTestCase
 import intellij.riot.lang.v3.Riot3HtmlFileType
 
-class Riot3ScriptTagTest : BasePlatformTestCase() {
-    override fun setUp() {
-        super.setUp()
-        myFixture.enableInspections(HtmlUnknownTagInspection(), HtmlUnknownAttributeInspection())
-    }
+class Riot3ScriptTagTest : RiotTestBase() {
 
     fun testLiteralMemberTopLevel() {
         myFixture.configureByText(
