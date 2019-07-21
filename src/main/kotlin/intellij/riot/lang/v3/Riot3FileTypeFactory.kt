@@ -8,6 +8,6 @@ import com.intellij.openapi.fileTypes.FileTypeFactory
  */
 class Riot3FileTypeFactory : FileTypeFactory() {
     override fun createFileTypes(consumer: FileTypeConsumer) {
-        consumer.consume(Riot3FileType.INSTANCE, "tag")
+        consumer.consume(Riot3HtmlFileType.INSTANCE, "tag")
     }
 }

@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>riot.js</id>
     <name>Riot.js</name>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <vendor email="andrey.starovoyt@jetbrains.com" url="https://github.com/anstarovoyt/intellij-riot.js">
         Andrey Starovoyt
     </vendor>
@@ -21,19 +21,27 @@
     <extensions defaultExtensionNs="com.intellij">
         <fileTypeFactory implementation="intellij.riot.lang.RiotFileTypeFactory"/>
         <fileTypeFactory implementation="intellij.riot.lang.v3.Riot3FileTypeFactory"/>
-        <lang.parserDefinition language="Riot" implementationClass="intellij.riot.lang.RiotParserDefinition"/>
-        
+        <lang.parserDefinition language="RiotHtml" implementationClass="intellij.riot.lang.RiotHtmlParserDefinition"/>
+        <lang.parserDefinition language="Riot3Html"
+                               implementationClass="intellij.riot.lang.v3.Riot3HtmlParserDefinition"/>
+
         <!-- Xml related things -->
         <xml.elementDescriptorProvider order="first"
                                        implementation="intellij.riot.xml.RiotComponentDescriptorProvider"/>
 
         <lang.parserDefinition language="RiotJS" implementationClass="intellij.riot.js.RiotJSParsingDefinition"/>
+        <lang.parserDefinition language="Riot3TagJS"
+                               implementationClass="intellij.riot.js.v3.Riot3TagJSParsingDefinition"/>
+
         <multiHostInjector implementation="intellij.riot.js.RiotJSInjector" id="riot"/>
         <fileBasedIndex implementation="intellij.riot.xml.RiotComponentIndex"/>
 
-        <lang.syntaxHighlighterFactory language="Riot"
+        <lang.syntaxHighlighterFactory language="RiotHtml"
                                        implementationClass="intellij.riot.lang.RiotHighlighterFactory"/>
-        <stubElementTypeHolder class="intellij.riot.js.RiotElements" />
+
+        <lang.syntaxHighlighterFactory language="Riot3Html"
+                                       implementationClass="intellij.riot.lang.RiotHighlighterFactory"/>
+        <stubElementTypeHolder class="intellij.riot.js.RiotElements"/>
         <implicitUsageProvider implementation="intellij.riot.js.RiotImplicitUsageProvider"/>
     </extensions>
     <extensions defaultExtensionNs="JavaScript">

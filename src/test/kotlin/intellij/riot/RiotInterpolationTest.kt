@@ -1,12 +1,12 @@
 package intellij.riot
 
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
-import intellij.riot.lang.RiotFileType
+import intellij.riot.lang.RiotHtmlFileType
 
 class RiotInterpolationTest : BasePlatformTestCase() {
     fun testSimple() {
         myFixture.configureByText(
-                RiotFileType.INSTANCE,
+                RiotHtmlFileType.INSTANCE,
                 "<test><a href={hello} /></test>"
         )
 
@@ -15,7 +15,7 @@ class RiotInterpolationTest : BasePlatformTestCase() {
 
     fun testSimpleArrow() {
         myFixture.configureByText(
-                RiotFileType.INSTANCE,
+                RiotHtmlFileType.INSTANCE,
                 "<test><a href={() => 1} /></test>"
         )
 

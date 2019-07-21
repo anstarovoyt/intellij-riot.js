@@ -21,7 +21,7 @@ val TOKENS_TO_MERGE by lazy {
             XmlTokenType.XML_TAG_CHARACTERS)
 }
 
-class RiotLexer : HtmlLexer(MergingLexerAdapter(FlexAdapter(_RiotHtmlLexer()), TOKENS_TO_MERGE), true) {
+open class RiotLexer : HtmlLexer(MergingLexerAdapter(FlexAdapter(_RiotHtmlLexer()), TOKENS_TO_MERGE), true) {
     override fun getTokenType(): IElementType? {
         val tokenType = super.getTokenType()
         if (seenAttribute && tokenType == JSElementTypes.EMBEDDED_CONTENT) {

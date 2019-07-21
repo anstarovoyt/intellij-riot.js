@@ -5,12 +5,12 @@ import com.intellij.lang.javascript.frameworks.JSFrameworkSpecificHandlersFactor
 import com.intellij.lang.javascript.psi.*
 import com.intellij.lang.javascript.psi.types.*
 import com.intellij.psi.PsiElement
-import intellij.riot.lang.RiotLanguage
+import intellij.riot.lang.RiotHtmlLanguage
 
 class RiotJSFrameworkSpecificHandlersFactory : JSFrameworkSpecificHandlersFactory {
     override fun findExpectedType(parent: JSExpression, expectedTypeKind: JSExpectedTypeKind): JSType? {
         val containingFile = parent.containingFile
-        if (containingFile.language !is RiotLanguage ||
+        if (containingFile.language !is RiotHtmlLanguage ||
                 parent !is JSObjectLiteralExpression ||
                 parent.parent !is ES6ExportDefaultAssignment) {
             return null
