@@ -14,7 +14,7 @@ class RiotComponentDescriptorProvider : XmlElementDescriptorProvider {
         if (tag == null) return null
         val name = tag.name
         val language = tag.containingFile?.language
-        if (language is IRiotHtmlLanguage) {
+        if (language !is IRiotHtmlLanguage) {
             return if (language == HTMLLanguage.INSTANCE) findRiotComponent(name, tag) else null
         }
 
