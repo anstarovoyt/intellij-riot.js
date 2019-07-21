@@ -11,6 +11,9 @@ import com.intellij.xml.impl.schema.AnyXmlAttributeDescriptor
 
 val riotSpecialTags = setOf("slot", "then", "else", "elseif", "if", "yield", "virtual")
 
+/**
+ *  Describes all html tags inside Riot.js templates
+ */
 class RiotElementXmlDescriptor(private val parentNSDescriptor: XmlNSDescriptor?, private val tag: XmlTag, private val tagName: String) : XmlElementDescriptor {
 
     override fun getDefaultValue(): String? = null

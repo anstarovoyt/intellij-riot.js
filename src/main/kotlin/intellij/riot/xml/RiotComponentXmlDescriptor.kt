@@ -9,6 +9,9 @@ import com.intellij.xml.XmlElementsGroup
 import com.intellij.xml.XmlNSDescriptor
 import com.intellij.xml.impl.schema.AnyXmlAttributeDescriptor
 
+/**
+ * Describes riot-component tags inside regular html and templates
+ */
 class RiotComponentXmlDescriptor(private val declaration: PsiElement, private val tagName: String) : XmlElementDescriptor {
 
     override fun getDefaultValue(): String? = null

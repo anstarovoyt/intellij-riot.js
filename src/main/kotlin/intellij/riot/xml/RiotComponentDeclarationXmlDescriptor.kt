@@ -9,6 +9,14 @@ import com.intellij.xml.XmlElementDescriptor.CONTENT_TYPE_UNKNOWN
 import com.intellij.xml.XmlElementsGroup
 import com.intellij.xml.XmlNSDescriptor
 
+/**
+ * Describes top-level Riot.js tag definition in template files
+ *
+ * hello.riot
+ * <hello> <- declaration
+ *
+ * </hello>
+ */
 class RiotComponentDeclarationXmlDescriptor(private val tag: XmlTag) : XmlElementDescriptor {
 
     private val myName = tag.name

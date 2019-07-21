@@ -12,7 +12,9 @@ import com.intellij.util.io.EnumeratorStringDescriptor
 import com.intellij.util.io.KeyDescriptor
 import intellij.riot.lang.IRiotFileType
 
-
+/**
+ * name-based index of all Riot.js templates
+ */
 class RiotComponentIndex : ScalarIndexExtension<String>() {
     companion object {
         private val id = ID.create<String, Void>("RiotComponentIndex")
