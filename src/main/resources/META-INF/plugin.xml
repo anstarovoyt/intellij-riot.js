@@ -13,8 +13,9 @@
         Riot.js plugin. Provides base support:
 <ul>
 <li>Support for ".riot" and ".tag" extensions</code>
-<li>Parsing expressions inside xml-tags</code>
+<li>Parsing expressions inside html tags and attributes </code>
 <li>Navigation based on component names</code>
+<li>Parsing Riot.js 3 (and before) script tag syntax</li>
 </ul>
     ]]></description>
 
@@ -50,6 +51,7 @@
                                           implementationClass="intellij.riot.js.RiotJSFrameworkSpecificHandlersFactory"/>
 
         <intentionAndInspectionFilter language="RiotJS" implementationClass="intellij.riot.js.RiotJSInspectionFilter"/>
-        <intentionAndInspectionFilter language="Riot3TagJS" implementationClass="intellij.riot.js.v3.Riot3TagJSInspectionFilter"/>
+        <intentionAndInspectionFilter language="Riot3TagJS"
+                                      implementationClass="intellij.riot.js.v3.Riot3TagJSInspectionFilter"/>
     </extensions>
 </idea-plugin>
