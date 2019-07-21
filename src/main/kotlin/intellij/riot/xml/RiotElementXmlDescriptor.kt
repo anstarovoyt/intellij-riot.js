@@ -9,7 +9,7 @@ import com.intellij.xml.XmlElementsGroup
 import com.intellij.xml.XmlNSDescriptor
 import com.intellij.xml.impl.schema.AnyXmlAttributeDescriptor
 
-val riotSpecialTags = setOf("slot", "then", "else", "elseif", "if", "yield")
+val riotSpecialTags = setOf("slot", "then", "else", "elseif", "if", "yield", "virtual")
 
 class RiotElementXmlDescriptor(private val parentNSDescriptor: XmlNSDescriptor?, private val tag: XmlTag, private val tagName: String) : XmlElementDescriptor {
 

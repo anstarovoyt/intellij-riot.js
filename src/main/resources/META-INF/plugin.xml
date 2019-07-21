@@ -43,6 +43,7 @@
                                        implementationClass="intellij.riot.lang.RiotHighlighterFactory"/>
         <stubElementTypeHolder class="intellij.riot.js.RiotElements"/>
         <implicitUsageProvider implementation="intellij.riot.js.RiotImplicitUsageProvider"/>
+        <xml.xmlExtension implementation="intellij.riot.xml.RiotXmlExtension"/>
     </extensions>
     <extensions defaultExtensionNs="JavaScript">
         <frameworkSpecificHandlersFactory language="JavaScript"
