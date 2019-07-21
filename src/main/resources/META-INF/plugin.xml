@@ -49,5 +49,6 @@
                                           implementationClass="intellij.riot.js.RiotJSFrameworkSpecificHandlersFactory"/>
 
         <intentionAndInspectionFilter language="RiotJS" implementationClass="intellij.riot.js.RiotJSInspectionFilter"/>
+        <intentionAndInspectionFilter language="Riot3TagJS" implementationClass="intellij.riot.js.v3.Riot3TagJSInspectionFilter"/>
     </extensions>
 </idea-plugin>
