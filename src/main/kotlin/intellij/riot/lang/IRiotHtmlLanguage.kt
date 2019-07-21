@@ -1,4 +1,7 @@
 package intellij.riot.lang
 
-interface IRiotHtmlLanguage {
-}
+/**
+ * Marker interface for Riot.js template languages
+ */
+
+interface IRiotHtmlLanguage

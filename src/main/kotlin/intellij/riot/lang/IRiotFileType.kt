@@ -1,4 +1,6 @@
 package intellij.riot.lang
 
-interface IRiotFileType {
-}
+/**
+ * Marker interface for Riot.js file types
+ */
+interface IRiotFileType

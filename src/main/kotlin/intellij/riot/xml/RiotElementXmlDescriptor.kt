@@ -43,7 +43,6 @@ class RiotElementXmlDescriptor(private val parentNSDescriptor: XmlNSDescriptor?,
         return AnyXmlAttributeDescriptor(name)
     }
 
-    private fun getXmlElementDescriptorFormParent(context: XmlTag?): XmlElementDescriptor? {
-        return parentNSDescriptor?.getElementDescriptor(context ?: tag)
-    }
+    private fun getXmlElementDescriptorFormParent(context: XmlTag?): XmlElementDescriptor? =
+            parentNSDescriptor?.getElementDescriptor(context ?: tag)
 }
