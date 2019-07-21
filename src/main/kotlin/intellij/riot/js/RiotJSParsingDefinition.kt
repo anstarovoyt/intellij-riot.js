@@ -6,6 +6,9 @@ import com.intellij.lang.javascript.types.JSFileElementType
 import com.intellij.openapi.project.Project
 import com.intellij.psi.tree.IFileElementType
 
+/**
+ * @see RiotJSLanguage
+ */
 class RiotJSParsingDefinition : ECMA6ParserDefinition() {
     companion object {
         private val FILE: IFileElementType = JSFileElementType.create(RiotJSLanguage.INSTANCE)

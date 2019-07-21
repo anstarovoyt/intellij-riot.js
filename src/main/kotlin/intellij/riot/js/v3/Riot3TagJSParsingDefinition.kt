@@ -15,6 +15,9 @@ import com.intellij.lang.javascript.types.JSFileElementType
 import com.intellij.openapi.project.Project
 import com.intellij.psi.tree.IFileElementType
 
+/**
+ * @see Riot3TagJSLanguage
+ */
 class Riot3TagJSParsingDefinition : ECMA6ParserDefinition() {
     companion object {
         private val FILE: IFileElementType = JSFileElementType.create(Riot3TagJSLanguage.INSTANCE)
@@ -35,7 +38,7 @@ class Riot3TagJSParsingDefinition : ECMA6ParserDefinition() {
 class Riot3TagJSParser(builder: PsiBuilder) : ES6Parser<ES6ExpressionParser<*>, ES6StatementParser<*>,
         ES6FunctionParser<*>, JSPsiTypeParser<JavaScriptParser<*, *, *, *>>>(builder) {
     init {
-        myStatementParser = object: ES6StatementParser<Riot3TagJSParser>(this) {
+        myStatementParser = object : ES6StatementParser<Riot3TagJSParser>(this) {
             override fun parseSourceElement() {
                 if (isIdentifierToken(builder.tokenType)) {
                     val next = builder.lookAhead(1)

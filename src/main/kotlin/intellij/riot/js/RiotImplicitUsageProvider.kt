@@ -5,6 +5,9 @@ import com.intellij.lang.ecmascript6.psi.ES6ExportDefaultAssignment
 import com.intellij.psi.PsiElement
 import intellij.riot.lang.IRiotFileType
 
+/**
+ * Avoid "unused" for top-level export default {} in riot templates
+ */
 class RiotImplicitUsageProvider : ImplicitUsageProvider {
     override fun isImplicitUsage(psiElement: PsiElement): Boolean {
         return isImplicitRead(psiElement)
