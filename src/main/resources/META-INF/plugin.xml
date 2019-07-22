@@ -8,7 +8,7 @@
     <depends>JavaScript</depends>
     <depends>com.intellij.modules.lang</depends>
     <depends>com.intellij.modules.xml</depends>
-    <idea-version since-build="191" until-build="192.*"/>
+    <idea-version since-build="182" until-build="192.*"/>
     <description><![CDATA[
         Riot.js plugin. Provides base support:
 <ul>
