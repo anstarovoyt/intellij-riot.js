@@ -42,8 +42,8 @@ class RiotJSFrameworkSpecificHandlersFactory : JSFrameworkSpecificHandlersFactor
     }
 
     private fun createSimpleTwoArgumentFunction(name: String, parent: PsiElement, simpleSource: JSTypeSource, anyType: JSAnyType): JSRecordType.PropertySignature {
-        val props = JSParameterTypeDecoratorImpl("currentProps", anyType, true, false, false)
-        val state = JSParameterTypeDecoratorImpl("currentState", anyType, true, false, false)
+        val props = JSParameterTypeDecoratorImpl(anyType, true, false, false)
+        val state = JSParameterTypeDecoratorImpl(anyType, true, false, false)
         val jsFunctionType = TypeScriptJSFunctionTypeImpl(simpleSource, emptyList(), listOf(props, state), null, null)
         return JSRecordTypeImpl.PropertySignatureImpl(name, jsFunctionType, true)
     }
