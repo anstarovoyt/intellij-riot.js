@@ -28,23 +28,22 @@ class RiotJSFrameworkSpecificHandlersFactory : JSFrameworkSpecificHandlersFactor
         members.add(JSRecordTypeImpl.PropertySignatureImpl("state", anyType, true, parent))
         members.add(JSRecordTypeImpl.PropertySignatureImpl("props", anyType, true, parent))
         members.add(JSRecordTypeImpl.PropertySignatureImpl("name", stringType, true, parent))
-        members.add(createSimpleTwoArgumentFunction("shouldUpdate", parent, simpleSource, anyType))
-        members.add(createSimpleTwoArgumentFunction("onBeforeMount", parent, simpleSource, anyType))
-        members.add(createSimpleTwoArgumentFunction("onMounted", parent, simpleSource, anyType))
-        members.add(createSimpleTwoArgumentFunction("onBeforeUpdate", parent, simpleSource, anyType))
-        members.add(createSimpleTwoArgumentFunction("onUpdated", parent, simpleSource, anyType))
-        members.add(createSimpleTwoArgumentFunction("onUpdated", parent, simpleSource, anyType))
-        members.add(createSimpleTwoArgumentFunction("onBeforeUnmount", parent, simpleSource, anyType))
-        members.add(createSimpleTwoArgumentFunction("onUnmounted", parent, simpleSource, anyType))
-        members.add(JSRecordTypeImpl.IndexSignatureImpl(stringType, anyType, parent, false))
+        members.add(createSimpleTwoArgumentFunction("shouldUpdate", simpleSource, anyType))
+        members.add(createSimpleTwoArgumentFunction("onBeforeMount", simpleSource, anyType))
+        members.add(createSimpleTwoArgumentFunction("onMounted", simpleSource, anyType))
+        members.add(createSimpleTwoArgumentFunction("onBeforeUpdate", simpleSource, anyType))
+        members.add(createSimpleTwoArgumentFunction("onUpdated", simpleSource, anyType))
+        members.add(createSimpleTwoArgumentFunction("onUpdated", simpleSource, anyType))
+        members.add(createSimpleTwoArgumentFunction("onBeforeUnmount", simpleSource, anyType))
+        members.add(createSimpleTwoArgumentFunction("onUnmounted", simpleSource, anyType))
 
         return JSRecordTypeImpl(simpleSource, members)
     }
 
-    private fun createSimpleTwoArgumentFunction(name: String, parent: PsiElement, simpleSource: JSTypeSource, anyType: JSAnyType): JSRecordType.PropertySignature {
+    private fun createSimpleTwoArgumentFunction(name: String, simpleSource: JSTypeSource, anyType: JSAnyType): JSRecordType.PropertySignature {
         val props = JSParameterTypeDecoratorImpl(anyType, true, false, false)
         val state = JSParameterTypeDecoratorImpl(anyType, true, false, false)
-        val jsFunctionType = TypeScriptJSFunctionTypeImpl(simpleSource, emptyList(), listOf(props, state), null, null)
+        val jsFunctionType = JSFunctionTypeImpl(simpleSource, listOf(props, state), null)
         return JSRecordTypeImpl.PropertySignatureImpl(name, jsFunctionType, true)
     }
 }

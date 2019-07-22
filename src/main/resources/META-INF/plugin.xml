@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>riot.js</id>
     <name>Riot.js</name>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <vendor email="andrey.starovoyt@jetbrains.com" url="https://github.com/anstarovoyt/intellij-riot.js">
         Andrey Starovoyt
     </vendor>
