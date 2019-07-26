@@ -6,6 +6,7 @@ The plugin can be installed in WebStorm, IntelliJ IDEA Ultimate, PhpStorm, PyCha
 
 To install the plugin open the IDE Preferences | Plugins, then click Browse repositories... and search for Riot.js.
 
+[Plugin repository link](https://plugins.jetbrains.com/plugin/12748-riot-js) 
 
 ## Features
 
