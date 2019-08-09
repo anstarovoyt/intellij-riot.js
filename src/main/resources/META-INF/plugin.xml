@@ -1,13 +1,14 @@
 <idea-plugin>
     <id>riot.js</id>
     <name>Riot.js</name>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <vendor email="andrey.starovoyt@jetbrains.com" url="https://github.com/anstarovoyt/intellij-riot.js">
         Andrey Starovoyt
     </vendor>
     <depends>JavaScript</depends>
     <depends>com.intellij.modules.lang</depends>
     <depends>com.intellij.modules.xml</depends>
+    <depends optional="true" config-file="css-plugin.xml">com.intellij.css</depends>
     <idea-version since-build="182" until-build="192.*"/>
     <description><![CDATA[
         Riot.js plugin. Provides base support:
