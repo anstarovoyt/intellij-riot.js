@@ -30,5 +30,18 @@ class Riot3ScriptTagTest : RiotTestBase() {
 
         myFixture.testHighlighting()
     }
+    
+    fun testScriptTagAsyncFunction() {
+        myFixture.configureByText(
+                Riot3HtmlFileType.INSTANCE,
+                "<test>\n" +
+                        "<script>\n" +
+                        "  async do1() { await hello() }\n" +
+                        "</script>\n" +
+                        "</test>"
+        )
+
+        myFixture.testHighlighting()
+    }
 
 }

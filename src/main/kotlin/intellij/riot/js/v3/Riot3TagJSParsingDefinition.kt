@@ -40,11 +40,13 @@ class Riot3TagJSParser(builder: PsiBuilder) : ES6Parser<ES6ExpressionParser<*>, 
     init {
         myStatementParser = object : ES6StatementParser<Riot3TagJSParser>(this) {
             override fun parseSourceElement() {
-                if (isIdentifierToken(builder.tokenType)) {
-                    val next = builder.lookAhead(1)
-                    if (next == JSTokenTypes.LPAR) {
+                val isAsync = JSTokenTypes.ASYNC_KEYWORD == builder.tokenType
+                if (isIdentifierToken(builder.tokenType) || isAsync && isIdentifierToken(builder.tokenType)) {
+                    val lineCandidate = builder.lookAhead(if (isAsync) 2 else 1)
+                    if (lineCandidate == JSTokenTypes.LPAR) {
                         val mark = builder.mark()
-                        if (myFunctionParser.parseFunctionNoMarker(FunctionParser.Context.SOURCE_ELEMENT, mark)) {
+                        
+                        if (myFunctionParser.parseAttributesList() && myFunctionParser.parseFunctionNoMarker(FunctionParser.Context.SOURCE_ELEMENT, mark)) {
                             return
                         }
                         mark.rollbackTo()
