@@ -11,14 +11,17 @@
     <depends optional="true" config-file="css-plugin.xml">com.intellij.css</depends>
     <idea-version since-build="182" until-build="192.*"/>
     <change-notes><![CDATA[
-        Proper parsing for async functions inside script tags for Riot.js 3.
+    <ul>
+        <li>Fixed parsing for async functions inside script tags for Riot.js 3.</li>
+        <li>Added top level tag completion inside components (script, style and other regular html tags).</li>
+    </ul>
     ]]></change-notes>
     <description><![CDATA[
         Riot.js plugin. Provides base support:
 <ul>
-<li>Support for ".riot" and ".tag" extensions</code>
-<li>Parsing expressions inside html tags and attributes </code>
-<li>Navigation based on component names</code>
+<li>Support for ".riot" and ".tag" extensions</li>
+<li>Parsing expressions inside html tags and attributes </li>
+<li>Navigation based on component names</li>
 <li>Parsing Riot.js 3 (and before) script tag syntax</li>
 </ul>
     ]]></description>

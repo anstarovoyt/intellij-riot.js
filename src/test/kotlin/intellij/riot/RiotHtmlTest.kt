@@ -16,5 +16,12 @@ class RiotHtmlTest : RiotTestBase() {
         val results = myFixture.completeBasic()
         val strings = results.map { it.lookupString }.toSet()
         UsefulTestCase.assertContainsElements(strings, "class")
+    }   
+    
+    fun testTagSimpleCompletion() {
+        myFixture.configureByText("test.riot", "<Test><<caret></Test>")
+        val results = myFixture.completeBasic()
+        val strings = results.map { it.lookupString }.toSet()
+        UsefulTestCase.assertContainsElements(strings, "div", "script", "style", "h1")
     }
 }

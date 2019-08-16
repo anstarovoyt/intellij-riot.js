@@ -1,5 +1,6 @@
 package intellij.riot
 
+import com.intellij.testFramework.UsefulTestCase
 import intellij.riot.lang.v3.Riot3HtmlFileType
 
 class Riot3ScriptTagTest : RiotTestBase() {
@@ -44,4 +45,10 @@ class Riot3ScriptTagTest : RiotTestBase() {
         myFixture.testHighlighting()
     }
 
+    fun testTagSimpleCompletion() {
+        myFixture.configureByText("test.tag", "<Test><<caret></Test>")
+        val results = myFixture.completeBasic()
+        val strings = results.map { it.lookupString }.toSet()
+        UsefulTestCase.assertContainsElements(strings, "div", "script")
+    }
 }

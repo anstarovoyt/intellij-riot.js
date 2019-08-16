@@ -23,7 +23,10 @@ class RiotComponentDeclarationXmlDescriptor(private val tag: XmlTag) : XmlElemen
     override fun getDefaultValue(): String? = null
     override fun getName(p0: PsiElement?): String = name
     override fun getName(): String = myName
-    override fun getElementsDescriptors(p0: XmlTag?): Array<XmlElementDescriptor> = emptyArray()
+    override fun getElementsDescriptors(p0: XmlTag?): Array<XmlElementDescriptor> {
+        val nsDescriptor = tag.getNSDescriptor("http://www.w3.org/1999/html", false) ?: return emptyArray()
+        return nsDescriptor.getRootElementsDescriptors(null)
+    }
     override fun init(p0: PsiElement?) {}
     override fun getContentType(): Int = CONTENT_TYPE_UNKNOWN
     override fun getTopGroup(): XmlElementsGroup? = null
