@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>riot.js</id>
     <name>Riot.js</name>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
     <vendor email="andrey.starovoyt@jetbrains.com" url="https://github.com/anstarovoyt/intellij-riot.js">
         Andrey Starovoyt
     </vendor>
@@ -9,10 +9,10 @@
     <depends>com.intellij.modules.lang</depends>
     <depends>com.intellij.modules.xml</depends>
     <depends optional="true" config-file="css-plugin.xml">com.intellij.css</depends>
-    <idea-version since-build="182" until-build="192.*"/>
+    <idea-version since-build="182" until-build="193.*"/>
     <change-notes><![CDATA[
     <ul>
-        <li>Added auto updating for file types *.riot and *.tag -> "Riot Framework" if the files already have association with "HTML".</li>
+        <li>Compatibility with 2019.3</li>
     </ul>
     ]]></change-notes>
     <description><![CDATA[
