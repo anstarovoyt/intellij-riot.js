@@ -1,6 +1,12 @@
 package intellij.riot.lang
 
+import com.intellij.lang.HtmlScriptContentProvider
+import com.intellij.lang.Language
+import com.intellij.lang.LanguageHtmlScriptContentProvider
 import com.intellij.lang.javascript.JSElementTypes
+import com.intellij.lang.javascript.JavaScriptSupportLoader
+import com.intellij.lang.javascript.dialects.TypeScriptJSXLanguageDialect
+import com.intellij.lang.javascript.dialects.TypeScriptLanguageDialect
 import com.intellij.lexer.FlexAdapter
 import com.intellij.lexer.HtmlHighlightingLexer
 import com.intellij.lexer.MergingLexerAdapter
@@ -15,5 +21,12 @@ class RiotHtmlHighlightingLexer : HtmlHighlightingLexer(MergingLexerAdapter(Flex
             return XmlElementType.XML_ATTRIBUTE_VALUE_TOKEN
         }
         return tokenType
+    }
+
+    override fun findScriptContentProvider(mimeType: String?): HtmlScriptContentProvider? {
+        if (mimeType == "ts") return LanguageHtmlScriptContentProvider.getScriptContentProvider(JavaScriptSupportLoader.TYPESCRIPT)
+        if (mimeType == "tsx") return LanguageHtmlScriptContentProvider.getScriptContentProvider(JavaScriptSupportLoader.TYPESCRIPT_JSX)
+
+        return super.findScriptContentProvider(mimeType)
     }
 } 

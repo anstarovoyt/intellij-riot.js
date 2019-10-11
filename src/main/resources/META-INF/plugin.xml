@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>riot.js</id>
     <name>Riot.js</name>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
     <vendor email="andrey.starovoyt@jetbrains.com" url="https://github.com/anstarovoyt/intellij-riot.js">
         Andrey Starovoyt
     </vendor>
@@ -12,7 +12,7 @@
     <idea-version since-build="182" until-build="193.*"/>
     <change-notes><![CDATA[
     <ul>
-        <li>Compatibility with 2019.3</li>
+        <li>TypeScript support</li>
     </ul>
     ]]></change-notes>
     <description><![CDATA[
@@ -54,6 +54,7 @@
         <postStartupActivity implementation="intellij.riot.lang.RiotFileTypeReassignmentActivity"/>
     </extensions>
     <extensions defaultExtensionNs="JavaScript">
+        <elementScopeProvider implementation="intellij.riot.js.RiotElementResolveScopeProvider"/>
         <frameworkSpecificHandlersFactory language="JavaScript"
                                           implementationClass="intellij.riot.js.RiotJSFrameworkSpecificHandlersFactory"/>
 
