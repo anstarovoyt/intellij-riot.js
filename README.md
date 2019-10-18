@@ -13,6 +13,8 @@ To install the plugin open the IDE Preferences | Plugins, then click Browse repo
 * Support for ".riot" and ".tag" extension
 * Parsing expressions inside xml-tags
 * Navigation based on component names
+* TypeScript
+* SASS and SCSS
 
 ![Example](example.png)
 
