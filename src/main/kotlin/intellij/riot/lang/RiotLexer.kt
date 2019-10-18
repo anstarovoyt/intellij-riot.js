@@ -5,9 +5,6 @@ import com.intellij.lang.Language
 import com.intellij.lang.LanguageHtmlScriptContentProvider
 import com.intellij.lang.javascript.JSElementTypes
 import com.intellij.lang.javascript.JavaScriptSupportLoader
-import com.intellij.lang.javascript.dialects.TypeScriptJSXLanguageDialect
-import com.intellij.lang.javascript.dialects.TypeScriptLanguageDialect
-import com.intellij.lang.javascript.ecmascript6.TypeScriptUtil
 import com.intellij.lexer.FlexAdapter
 import com.intellij.lexer.HtmlLexer
 import com.intellij.lexer.MergingLexerAdapter
@@ -28,6 +25,15 @@ val TOKENS_TO_MERGE by lazy {
             XmlTokenType.XML_TAG_CHARACTERS)
 }
 
+fun getStyleLanguage(styleType: String?, styleLanguage: Language?): Language? {
+    if (styleType != null && !styleType.startsWith("text/")) {
+        val langCandidate = Language.findLanguageByID(styleType.toUpperCase())
+        if (langCandidate != null) return langCandidate
+    }
+
+    return styleLanguage
+}
+
 open class RiotLexer : HtmlLexer(MergingLexerAdapter(FlexAdapter(_RiotHtmlLexer()), TOKENS_TO_MERGE), true) {
     override fun getTokenType(): IElementType? {
         val tokenType = super.getTokenType()
@@ -43,4 +49,9 @@ open class RiotLexer : HtmlLexer(MergingLexerAdapter(FlexAdapter(_RiotHtmlLexer(
 
         return super.findScriptContentProvider(mimeType)
     }
+
+    override fun getStyleLanguage(): Language? {
+        return getStyleLanguage(this.styleType, super.getStyleLanguage())
+    }
+
 }

@@ -29,4 +29,8 @@ class RiotHtmlHighlightingLexer : HtmlHighlightingLexer(MergingLexerAdapter(Flex
 
         return super.findScriptContentProvider(mimeType)
     }
+
+    override fun getStyleLanguage(): Language? {
+        return getStyleLanguage(this.styleType, super.getStyleLanguage())
+    }
 } 

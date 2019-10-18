@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>riot.js</id>
     <name>Riot.js</name>
-    <version>1.0.8</version>
+    <version>1.0.9</version>
     <vendor email="andrey.starovoyt@jetbrains.com" url="https://github.com/anstarovoyt/intellij-riot.js">
         Andrey Starovoyt
     </vendor>
@@ -9,19 +9,21 @@
     <depends>com.intellij.modules.lang</depends>
     <depends>com.intellij.modules.xml</depends>
     <depends optional="true" config-file="css-plugin.xml">com.intellij.css</depends>
-    <idea-version since-build="182" until-build="193.*"/>
+    <idea-version since-build="182" until-build="201.*"/>
     <change-notes><![CDATA[
     <ul>
-        <li>TypeScript support</li>
+        <li>SASS and SCSS support</li>
     </ul>
     ]]></change-notes>
     <description><![CDATA[
         Riot.js plugin. Provides base support:
 <ul>
-<li>Support for ".riot" and ".tag" extensions</li>
+<li>Extensions ".riot" and ".tag"</li>
 <li>Parsing expressions inside html tags and attributes </li>
 <li>Navigation based on component names</li>
 <li>Parsing Riot.js 3 (and before) script tag syntax</li>
+<li>TypeScript</li>
+<li>SASS and SCSS</li>
 </ul>
     ]]></description>
 
