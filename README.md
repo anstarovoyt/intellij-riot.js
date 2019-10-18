@@ -21,6 +21,6 @@ To install the plugin open the IDE Preferences | Plugins, then click Browse repo
 
 ## Known issues
 
-* Riot 1,2,3 optional script tags are not supported
-* Expression parsing uses pure stategy and doesn't allow nested braces "{" and "}"
+* Riot 1,2,3 optional script tags [are not supported](https://github.com/anstarovoyt/intellij-riot.js/issues/8)
+* Expression parsing uses pure stategy and [doesn't allow nested braces "{" and "}"](https://github.com/anstarovoyt/intellij-riot.js/issues/4)
 
