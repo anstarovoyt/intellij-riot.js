@@ -4,7 +4,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.2.61'
 }
 
-version '1.0.10'
+version '1.0.11'
 
 sourceCompatibility = 1.8
 
@@ -19,7 +19,7 @@ dependencies {
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     version 'IU-LATEST-EAP-SNAPSHOT'
-    plugins = ['JavaScriptLanguage', "CSS", "SASS"]
+    plugins = ['JavaScriptLanguage', "platform-images", "CSS", "SASS"]
     pluginName 'riot.js'
     downloadSources false
     updateSinceUntilBuild false
