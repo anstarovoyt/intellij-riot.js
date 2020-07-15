@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>riot.js</id>
     <name>Riot.js</name>
-    <version>1.0.11</version>
+    <version>1.0.12</version>
     <vendor email="andrey.starovoyt@jetbrains.com" url="https://github.com/anstarovoyt/intellij-riot.js">
         Andrey Starovoyt
     </vendor>
@@ -9,7 +9,7 @@
     <depends>com.intellij.modules.lang</depends>
     <depends>com.intellij.modules.xml</depends>
     <depends optional="true" config-file="css-plugin.xml">com.intellij.css</depends>
-    <idea-version since-build="182" until-build="202.*"/>
+    <idea-version since-build="202.1" until-build="202.*"/>
     <change-notes><![CDATA[
     <ul>
         <li>Plugin repository now can suggest the plugin for '.riot' extension</li>
@@ -57,7 +57,7 @@
     </extensions>
     <extensions defaultExtensionNs="JavaScript">
         <elementScopeProvider implementation="intellij.riot.js.RiotElementResolveScopeProvider"/>
-        <frameworkSpecificHandlersFactory language="JavaScript"
+        <frameworkSpecificHandler language="JavaScript"
                                           implementationClass="intellij.riot.js.RiotJSFrameworkSpecificHandlersFactory"/>
 
         <intentionAndInspectionFilter language="RiotJS" implementationClass="intellij.riot.js.RiotJSInspectionFilter"/>
