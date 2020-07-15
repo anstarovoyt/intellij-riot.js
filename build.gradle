@@ -6,6 +6,11 @@ plugins {
 
 version '1.0.12'
 
+patchPluginXml {
+    sinceBuild = "202.1"
+    untilBuild = "202.*"
+}
+
 sourceCompatibility = 1.8
 
 repositories {
