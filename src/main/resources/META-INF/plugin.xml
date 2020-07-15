@@ -28,8 +28,17 @@
     ]]></description>
 
     <extensions defaultExtensionNs="com.intellij">
-        <fileTypeFactory implementation="intellij.riot.lang.RiotFileTypeFactory"/>
-        <fileTypeFactory implementation="intellij.riot.lang.v3.Riot3FileTypeFactory"/>
+
+        <fileType name="Riot3Html" fieldName="INSTANCE"
+                  implementationClass="intellij.riot.lang.v3.Riot3HtmlFileType"
+                  language="Riot3Html"
+                  extensions="tag"/>
+        
+        <fileType name="RiotHtml" fieldName="INSTANCE" 
+                  implementationClass="intellij.riot.lang.RiotHtmlFileType" 
+                  language="RiotHtml" 
+                  extensions="riot"/>
+        
         <lang.parserDefinition language="RiotHtml" implementationClass="intellij.riot.lang.RiotHtmlParserDefinition"/>
         <lang.parserDefinition language="Riot3Html"
                                implementationClass="intellij.riot.lang.v3.Riot3HtmlParserDefinition"/>

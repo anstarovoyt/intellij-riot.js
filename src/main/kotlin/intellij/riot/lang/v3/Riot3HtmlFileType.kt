@@ -12,6 +12,7 @@ class Riot3HtmlFileType : LanguageFileType(Riot3HtmlLanguage.INSTANCE), IRiotFil
     override fun getDescription(): String = "Riot framework 3- files"
 
     companion object {
+        @JvmField
         val INSTANCE = Riot3HtmlFileType()
     }
 }

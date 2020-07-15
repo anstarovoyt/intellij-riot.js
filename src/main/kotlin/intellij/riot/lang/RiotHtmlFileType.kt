@@ -9,8 +9,10 @@ class RiotHtmlFileType : LanguageFileType(RiotHtmlLanguage.INSTANCE), IRiotFileT
     override fun getName(): String = "RiotHtml"
     override fun getDefaultExtension(): String = "riot"
     override fun getDescription(): String = "Riot framework 4+ files"
-
+    
     companion object {
-        val INSTANCE = RiotHtmlFileType()
+        @JvmField
+        val INSTANCE = RiotHtmlFileType()        
     }
 }
+
