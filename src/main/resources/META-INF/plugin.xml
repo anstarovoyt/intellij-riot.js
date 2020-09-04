@@ -13,7 +13,7 @@
     <idea-version since-build="0" until-build="0"/>
     <change-notes><![CDATA[
     <ul>
-        <li>Plugin repository now can suggest the plugin for '.riot' extension</li>
+        <li>Added debugg support in ".riot" and ".tag" files via the JavaScript Debug run configuration</li>
     </ul>
     ]]></change-notes>
     <description><![CDATA[
