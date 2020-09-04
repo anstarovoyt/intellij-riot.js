@@ -1,0 +1,6 @@
+<idea-plugin>
+    <extensions defaultExtensionNs="com.jetbrains">
+        <javaScriptDebugAware implementation="intellij.riot.run.RiotDebugAware"/>
+        <javaScriptDebugAware implementation="intellij.riot.run.Riot3DebugAware"/>
+    </extensions>
+</idea-plugin>
