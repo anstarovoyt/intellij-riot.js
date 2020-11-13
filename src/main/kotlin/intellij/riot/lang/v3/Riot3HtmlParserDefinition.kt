@@ -21,7 +21,7 @@ class Riot3HtmlParserDefinition : HTMLParserDefinition() {
     }
 
     override fun createLexer(project: Project?): Lexer {
-        return Riot3Lexer()
+        return Riot3HtmlLexer()
     }
 
     companion object {

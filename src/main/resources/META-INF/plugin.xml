@@ -10,7 +10,7 @@
     <depends>com.intellij.modules.xml</depends>
     <depends optional="true" config-file="css-plugin.xml">com.intellij.css</depends>
     <depends optional="true" config-file="js-debugger.xml">JavaScriptDebugger</depends>
-    <idea-version since-build="0" until-build="0"/>
+    <idea-version since-build="203.5784.10" until-build="211.*"/>
     <change-notes><![CDATA[
     <ul>
         <li>Added debug support in ".riot" and ".tag" files via the JavaScript Debug run configuration</li>
@@ -34,12 +34,12 @@
                   implementationClass="intellij.riot.lang.v3.Riot3HtmlFileType"
                   language="Riot3Html"
                   extensions="tag"/>
-        
-        <fileType name="RiotHtml" fieldName="INSTANCE" 
-                  implementationClass="intellij.riot.lang.RiotHtmlFileType" 
-                  language="RiotHtml" 
+
+        <fileType name="RiotHtml" fieldName="INSTANCE"
+                  implementationClass="intellij.riot.lang.RiotHtmlFileType"
+                  language="RiotHtml"
                   extensions="riot"/>
-        
+
         <lang.parserDefinition language="RiotHtml" implementationClass="intellij.riot.lang.RiotHtmlParserDefinition"/>
         <lang.parserDefinition language="Riot3Html"
                                implementationClass="intellij.riot.lang.v3.Riot3HtmlParserDefinition"/>
@@ -64,6 +64,7 @@
         <implicitUsageProvider implementation="intellij.riot.js.RiotImplicitUsageProvider"/>
         <xml.xmlExtension implementation="intellij.riot.xml.RiotXmlExtension"/>
         <postStartupActivity implementation="intellij.riot.lang.RiotFileTypeReassignmentActivity"/>
+        <html.embeddedContentSupport implementation="intellij.riot.lang.RiotHtmlEmbeddedContentSupport"/>
     </extensions>
     <extensions defaultExtensionNs="JavaScript">
         <elementScopeProvider implementation="intellij.riot.js.RiotElementResolveScopeProvider"/>
