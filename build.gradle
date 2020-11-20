@@ -11,7 +11,7 @@ patchPluginXml {
     untilBuild = "211.*"
 }
 
-sourceCompatibility = 1.8
+sourceCompatibility = 11
 
 repositories {
     mavenCentral()
