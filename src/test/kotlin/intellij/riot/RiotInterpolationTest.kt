@@ -1,8 +1,11 @@
 package intellij.riot
 
 import intellij.riot.lang.RiotHtmlFileType
+import org.junit.Test
 
 class RiotInterpolationTest : RiotTestBase() {
+
+    @Test
     fun testSimple() {
         myFixture.configureByText(
                 RiotHtmlFileType.INSTANCE,
@@ -12,6 +15,7 @@ class RiotInterpolationTest : RiotTestBase() {
         myFixture.testHighlighting()
     }
 
+    @Test
     fun testSimpleArrow() {
         myFixture.configureByText(
                 RiotHtmlFileType.INSTANCE,

@@ -8,8 +8,11 @@ import com.intellij.lang.typescript.inspections.TypeScriptValidateTypesInspectio
 import com.intellij.testFramework.UsefulTestCase
 import intellij.riot.lang.RiotHtmlFileType
 import junit.framework.TestCase
+import org.junit.Test
 
 class RiotHtmlTest : RiotTestBase() {
+
+    @Test
     fun testCssInTags() {
         myFixture.configureByText("my.css", ".myClass {}")
         myFixture.configureByText("test.riot", "<Test><div class='myCla<caret>ss'></div></Test>")
@@ -17,6 +20,7 @@ class RiotHtmlTest : RiotTestBase() {
         TestCase.assertNotNull(ref?.resolve())
     }
 
+    @Test
     fun testTagSimpleAttributes() {
         myFixture.configureByText("test.riot", "<Test><div <caret>></div></Test>")
         val results = myFixture.completeBasic()
@@ -24,6 +28,7 @@ class RiotHtmlTest : RiotTestBase() {
         UsefulTestCase.assertContainsElements(strings, "class")
     }
 
+    @Test
     fun testTagSimpleCompletion() {
         myFixture.configureByText("test.riot", "<Test><<caret></Test>")
         val results = myFixture.completeBasic()
@@ -31,6 +36,7 @@ class RiotHtmlTest : RiotTestBase() {
         UsefulTestCase.assertContainsElements(strings, "div", "script", "style", "h1")
     }
 
+    @Test
     fun testTypeScript() {
         myFixture.enableInspections(TypeScriptCheckImportInspection(),
                 TypeScriptValidateTypesInspection(),
@@ -51,6 +57,7 @@ class RiotHtmlTest : RiotTestBase() {
         myFixture.testHighlighting()
     }
 
+    @Test
     fun testScss() {
         myFixture.configureByText(
                 RiotHtmlFileType.INSTANCE,
@@ -70,8 +77,8 @@ class RiotHtmlTest : RiotTestBase() {
 
         myFixture.testHighlighting()
     }
-    
-    
+
+    @Test
     fun testSass() {
         myFixture.configureByText(
                 RiotHtmlFileType.INSTANCE,
