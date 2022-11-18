@@ -1,18 +1,16 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '1.5.2'
-    id 'org.jetbrains.kotlin.jvm' version '1.7.10'
+    id 'org.jetbrains.intellij' version '1.10.0'
+    id 'org.jetbrains.kotlin.jvm' version '1.7.21'
 }
 
-version "1.1.222"
+version "1.1.223"
 group "intellij.riot"
 
 patchPluginXml {
-    sinceBuild = "222.0"
-    untilBuild = "222.*"
+    sinceBuild = "223.0"
+    untilBuild = "223.*"
 }
-
-sourceCompatibility = 11
 
 repositories {
     mavenCentral()
@@ -21,5 +19,5 @@ repositories {
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     version = 'IU-LATEST-EAP-SNAPSHOT'
-    plugins = ['JavaScriptLanguage', "CSS", "JavaScriptDebugger", "sass"]
+    plugins = ['javascript-impl', "css-impl", "JavaScriptDebugger", "sass"]
 }

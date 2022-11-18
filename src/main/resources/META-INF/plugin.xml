@@ -1,5 +1,6 @@
 <idea-plugin>
     <id>riot.js</id>
+    <!--suppress PluginXmlCapitalization -->
     <name>Riot.js</name>
     <version>PATCHED</version>
     <vendor email="andrey.starovoyt@jetbrains.com" url="https://github.com/anstarovoyt/intellij-riot.js">
@@ -10,7 +11,6 @@
     <depends>com.intellij.modules.xml</depends>
     <depends optional="true" config-file="css-plugin.xml">com.intellij.css</depends>
     <depends optional="true" config-file="js-debugger.xml">JavaScriptDebugger</depends>
-    <idea-version since-build="203.5784.10" until-build="211.*"/>
     <change-notes><![CDATA[
     <ul>
         <li>Added debug support in ".riot" and ".tag" files via the JavaScript Debug run configuration</li>
@@ -60,7 +60,7 @@
 
         <lang.syntaxHighlighterFactory language="Riot3Html"
                                        implementationClass="intellij.riot.lang.RiotHighlighterFactory"/>
-        <stubElementTypeHolder class="intellij.riot.js.RiotElements"/>
+        <stubElementTypeHolder order="last" class="intellij.riot.js.RiotStubElements" externalIdPrefix="Riot3TagJS:"/>
         <implicitUsageProvider implementation="intellij.riot.js.RiotImplicitUsageProvider"/>
         <xml.xmlExtension implementation="intellij.riot.xml.RiotXmlExtension"/>
         <postStartupActivity implementation="intellij.riot.lang.RiotFileTypeReassignmentActivity"/>
