@@ -25,10 +25,13 @@ class RiotHtmlParserDefinition : HTMLParserDefinition() {
     }
 
     companion object {
-        internal var RIOT_FILE: IFileElementType = object : IStubFileElementType<PsiFileStub<HtmlFileImpl>>(RiotHtmlLanguage.INSTANCE) {
-            override fun getStubVersion(): Int {
-                return super.getStubVersion() + JSFileElementType.getVersion()
-            }
-        }
+        @JvmField
+        internal val RIOT_FILE = RiotFileElementType()
+    }
+}
+
+class RiotFileElementType : IStubFileElementType<PsiFileStub<HtmlFileImpl>>("RiotFile", RiotHtmlLanguage.INSTANCE) {
+    override fun getStubVersion(): Int {
+        return super.getStubVersion() + JSFileElementType.getVersion()
     }
 }

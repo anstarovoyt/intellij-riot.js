@@ -25,10 +25,13 @@ class Riot3HtmlParserDefinition : HTMLParserDefinition() {
     }
 
     companion object {
-        internal var RIOT_FILE: IFileElementType = object : IStubFileElementType<PsiFileStub<HtmlFileImpl>>(Riot3HtmlLanguage.INSTANCE) {
-            override fun getStubVersion(): Int {
-                return super.getStubVersion() + JSFileElementType.getVersion()
-            }
-        }
+        @JvmField
+        internal var RIOT_FILE: IFileElementType = Riot3FileElementType()
+    }
+}
+
+class Riot3FileElementType : IStubFileElementType<PsiFileStub<HtmlFileImpl>>("Riot3File", Riot3HtmlLanguage.INSTANCE) {
+    override fun getStubVersion(): Int {
+        return super.getStubVersion() + JSFileElementType.getVersion()
     }
 }

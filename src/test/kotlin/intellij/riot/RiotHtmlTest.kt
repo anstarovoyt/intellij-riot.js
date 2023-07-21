@@ -2,14 +2,13 @@ package intellij.riot
 
 import com.intellij.lang.javascript.inspections.JSUnresolvedVariableInspection
 import com.intellij.lang.javascript.modules.TypeScriptCheckImportInspection
-import com.intellij.lang.typescript.inspections.TypeScriptUnresolvedFunctionInspection
-import com.intellij.lang.typescript.inspections.TypeScriptUnresolvedVariableInspection
 import com.intellij.lang.typescript.inspections.TypeScriptValidateTypesInspection
 import com.intellij.testFramework.UsefulTestCase
 import intellij.riot.lang.RiotHtmlFileType
 import junit.framework.TestCase
 import org.junit.Test
 
+@Suppress("JUnitMixedFramework")
 class RiotHtmlTest : RiotTestBase() {
 
     @Test
@@ -40,8 +39,6 @@ class RiotHtmlTest : RiotTestBase() {
     fun testTypeScript() {
         myFixture.enableInspections(TypeScriptCheckImportInspection(),
                 TypeScriptValidateTypesInspection(),
-                TypeScriptUnresolvedVariableInspection(),
-                TypeScriptUnresolvedFunctionInspection(),
                 JSUnresolvedVariableInspection())
 
         myFixture.configureByText(
