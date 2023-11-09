@@ -1,15 +1,15 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '1.15.0'
-    id 'org.jetbrains.kotlin.jvm' version '1.9.0'
+    id 'org.jetbrains.intellij' version '1.16.0'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.20'
 }
 
-version "1.1.232"
+version "1.1.233"
 group "intellij.riot"
 
 patchPluginXml {
-    sinceBuild = "232.0"
-    untilBuild = "232.*"
+    sinceBuild = "233.0"
+    untilBuild = "233.*"
 }
 
 repositories {
