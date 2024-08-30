@@ -1,15 +1,15 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '1.16.0'
-    id 'org.jetbrains.kotlin.jvm' version '1.9.20'
+    id 'org.jetbrains.intellij' version '1.17.4'
+    id 'org.jetbrains.kotlin.jvm' version '2.0.20'
 }
 
-version "1.1.241"
+version "1.1.242"
 group "intellij.riot"
 
 patchPluginXml {
-    sinceBuild = "241.0"
-    untilBuild = "241.*"
+    sinceBuild = "242.0"
+    untilBuild = "242.*"
 }
 
 repositories {
@@ -18,5 +18,5 @@ repositories {
 
 intellij {
     version = 'IU-LATEST-EAP-SNAPSHOT'
-    plugins = ['javascript-impl', "css-impl", "JavaScriptDebugger", "sass"]
+    plugins = ['JavaScript', "com.intellij.css", "JavaScriptDebugger", "org.jetbrains.plugins.sass"]
 }
