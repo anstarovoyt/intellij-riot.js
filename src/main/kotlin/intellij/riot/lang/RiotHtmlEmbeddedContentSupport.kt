@@ -7,7 +7,6 @@ import com.intellij.lang.Language
 import com.intellij.lang.javascript.JavaScriptSupportLoader
 import com.intellij.lexer.BaseHtmlLexer
 import com.intellij.lexer.HtmlScriptStyleEmbeddedContentProvider
-import com.intellij.xml.util.HtmlUtil
 
 class RiotHtmlEmbeddedContentSupport : HtmlEmbeddedContentSupport {
 

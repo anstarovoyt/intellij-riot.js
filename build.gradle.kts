@@ -4,7 +4,7 @@ plugins {
     id("org.jetbrains.intellij") version "1.17.4"
 }
 
-version = "1.1.242"
+version = "1.1.251"
 group = "intellij.riot"
 
 repositories {
@@ -14,7 +14,7 @@ repositories {
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-    version.set("2024.2")
+    version.set("2025.1")
     type.set("IU")
     plugins.set(listOf("JavaScript", "com.intellij.css", "JavaScriptDebugger", "org.jetbrains.plugins.sass"))
 }
@@ -30,8 +30,8 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("242.0")
-        untilBuild.set("242.*")
+        sinceBuild.set("251.0")
+        untilBuild.set("251.*")
     }
 
     buildPlugin {

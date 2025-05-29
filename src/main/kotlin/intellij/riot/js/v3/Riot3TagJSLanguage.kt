@@ -11,13 +11,8 @@ import com.intellij.lang.javascript.parsing.JavaScriptParser
  * We have to keep a separate language for it because it introduce non-trivial syntax:
  * do1() {hello} <- at top level of the script tag
  */
-class Riot3TagJSLanguage : JSLanguageDialect("Riot3TagJS", DialectOptionHolder.ECMA_6, JavaScriptSupportLoader.ECMA_SCRIPT_6) {
+class Riot3TagJSLanguage : JSLanguageDialect("Riot3TagJS", DialectOptionHolder.JS_WITHOUT_JSX, JavaScriptSupportLoader.ECMA_SCRIPT_6) {
     companion object {
         val INSTANCE = Riot3TagJSLanguage()
-    }
-
-    override fun getFileExtension(): String = "js"
-    override fun createParser(builder: PsiBuilder): JavaScriptParser<*, *, *, *> {
-        return Riot3TagJSParser(builder)
     }
 }
