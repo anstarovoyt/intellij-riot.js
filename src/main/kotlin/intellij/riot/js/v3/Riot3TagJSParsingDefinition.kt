@@ -7,6 +7,7 @@ import com.intellij.lang.ecmascript6.parsing.ES6StatementParser
 import com.intellij.lang.javascript.JSTokenTypes
 import com.intellij.lang.javascript.dialects.ECMA6ParserDefinition
 import com.intellij.lang.javascript.parsing.FunctionParser
+import com.intellij.lang.javascript.parsing.JavaScriptParser
 import com.intellij.lang.javascript.types.JSFileElementType
 import com.intellij.openapi.project.Project
 import com.intellij.psi.tree.IFileElementType
@@ -23,6 +24,10 @@ class Riot3TagJSParsingDefinition : ECMA6ParserDefinition() {
         return FILE
     }
 
+    override fun createJSParser(builder: PsiBuilder): JavaScriptParser {
+        return Riot3TagJSParser(builder)
+    }
+
     override fun createParser(project: Project?): PsiParser {
         return PsiParser { root, builder ->
             Riot3TagJSParser(builder).parseJS(root)
@@ -32,7 +37,6 @@ class Riot3TagJSParsingDefinition : ECMA6ParserDefinition() {
 }
 
 class Riot3TagJSParser(builder: PsiBuilder) : ES6Parser(builder) {
-
     override val statementParser: ES6StatementParser<*> by lazy {
         Riot3StatementParser(this)
     }
