@@ -1,40 +1,42 @@
+import org.jetbrains.intellij.platform.gradle.TestFrameworkType
+
+
 plugins {
-    java
-    id("org.jetbrains.kotlin.jvm") version "2.0.20"
-    id("org.jetbrains.intellij") version "1.17.4"
+    id("java") // Java support
+    id("org.jetbrains.kotlin.jvm") version "2.1.20"
+    id("org.jetbrains.intellij.platform") version "2.5.0"
 }
+
 
 version = "1.1.251"
 group = "intellij.riot"
 
+// Set the JVM language level used to build the project.
+kotlin {
+    jvmToolchain(21)
+}
+
+
+// Configure project's dependencies
 repositories {
     mavenCentral()
+//
+    intellijPlatform {
+        defaultRepositories()
+        localPlatformArtifacts()
+        intellijDependencies()
+    }
 }
 
-// Configure Gradle IntelliJ Plugin
-// Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
-intellij {
-    version.set("2025.1")
-    type.set("IU")
-    plugins.set(listOf("JavaScript", "com.intellij.css", "JavaScriptDebugger", "org.jetbrains.plugins.sass"))
-}
+dependencies {
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.opentest4j:opentest4j:1.3.0")
 
-tasks {
-    // Set the JVM compatibility versions
-    withType<JavaCompile> {
-        sourceCompatibility = "17"
-        targetCompatibility = "17"
-    }
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = "17"
-    }
+    intellijPlatform {
+        create("IU", "2025.1.1")
 
-    patchPluginXml {
-        sinceBuild.set("251.0")
-        untilBuild.set("251.*")
-    }
+        bundledPlugins(listOf("JavaScript", "com.intellij.css", "JavaScriptDebugger", "org.jetbrains.plugins.sass"))
 
-    buildPlugin {
-        archiveBaseName.set("intellij-riot.js")
+        testFramework(TestFrameworkType.Platform)
     }
 }

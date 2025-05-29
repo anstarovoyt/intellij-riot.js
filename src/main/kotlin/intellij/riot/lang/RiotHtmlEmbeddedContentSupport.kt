@@ -26,7 +26,7 @@ class RiotHtmlEmbeddedContentSupport : HtmlEmbeddedContentSupport {
 
         override fun styleLanguage(styleLang: String?): Language? =
                 (if (styleLang != null && !styleLang.startsWith("text/")) {
-                    Language.findLanguageByID(styleLang.toUpperCase())
+                    Language.findLanguageByID(styleLang.uppercase())
                 } else null) ?: super.styleLanguage(styleLang)
 
         override fun scriptEmbedmentInfo(mimeType: String?): HtmlEmbedmentInfo? =
