@@ -25,7 +25,7 @@ class RiotFileTypeReassignmentActivity : ProjectActivity {
         if (riotChanged || tagChanged) {
             withContext(Dispatchers.EDT) {
                 val groupDisplayId = "Riot notification"
-                val notificationTitle = "Riot File Type Updating"
+                val notificationTitle = "Riot file type updating"
                 val notificationMessage = "File Type associations are updated from 'HTML' to 'Riot Framework'"
                 val notificationType = NotificationType.INFORMATION
                 val notification = com.intellij.notification.Notification(groupDisplayId, notificationTitle, notificationMessage, notificationType)

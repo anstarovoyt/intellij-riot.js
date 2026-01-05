@@ -1,7 +1,6 @@
 package intellij.riot.lang
 
 import com.intellij.lang.html.HTMLParserDefinition
-import com.intellij.lang.javascript.types.JSFileElementType
 import com.intellij.lexer.Lexer
 import com.intellij.openapi.project.Project
 import com.intellij.psi.FileViewProvider

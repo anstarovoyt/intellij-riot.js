@@ -6,8 +6,9 @@ import com.intellij.lang.javascript.JSInjectionBracesUtil
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiLanguageInjectionHost
-import com.intellij.psi.xml.*
-import com.intellij.util.containers.ContainerUtil
+import com.intellij.psi.xml.XmlAttributeValue
+import com.intellij.psi.xml.XmlText
+import com.intellij.psi.xml.XmlTokenType
 import intellij.riot.lang.IRiotFileType
 
 class RiotJSInjector : MultiHostInjector {
