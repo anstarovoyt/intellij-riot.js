@@ -4,6 +4,7 @@ import com.intellij.lang.ecmascript6.psi.ES6ExportDefaultAssignment
 import com.intellij.lang.javascript.frameworks.JSFrameworkSpecificHandler
 import com.intellij.lang.javascript.psi.*
 import com.intellij.lang.javascript.psi.types.*
+import com.intellij.lang.javascript.psi.types.recordImpl.PropertySignatureImpl
 import com.intellij.psi.PsiElement
 import intellij.riot.lang.RiotHtmlLanguage
 
@@ -25,10 +26,10 @@ class RiotJSFrameworkSpecificHandlersFactory : JSFrameworkSpecificHandler {
         val simpleSource = JSTypeSourceFactory.createTypeSource(parent, true)
         val stringType = JSNamedTypeFactory.createType(JSCommonTypeNames.STRING_TYPE_NAME, simpleSource, JSContext.INSTANCE)
         val members = mutableListOf<JSRecordType.TypeMember>()
-        members.add(JSRecordTypeImpl.PropertySignatureImpl("components", anyType, true, false, parent))
-        members.add(JSRecordTypeImpl.PropertySignatureImpl("state", anyType, true, false, parent))
-        members.add(JSRecordTypeImpl.PropertySignatureImpl("props", anyType, true, false, parent))
-        members.add(JSRecordTypeImpl.PropertySignatureImpl("name", stringType, true, false, parent))
+        members.add(PropertySignatureImpl("components", anyType, true, false, parent))
+        members.add(PropertySignatureImpl("state", anyType, true, false, parent))
+        members.add(PropertySignatureImpl("props", anyType, true, false, parent))
+        members.add(PropertySignatureImpl("name", stringType, true, false, parent))
         members.add(createSimpleTwoArgumentFunction("shouldUpdate", simpleSource, anyType))
         members.add(createSimpleTwoArgumentFunction("onBeforeMount", simpleSource, anyType))
         members.add(createSimpleTwoArgumentFunction("onMounted", simpleSource, anyType))
@@ -45,6 +46,6 @@ class RiotJSFrameworkSpecificHandlersFactory : JSFrameworkSpecificHandler {
         val props = JSParameterTypeDecoratorImpl(anyType, true, false, false)
         val state = JSParameterTypeDecoratorImpl(anyType, true, false, false)
         val jsFunctionType = JSFunctionTypeImpl(simpleSource, listOf(props, state), null)
-        return JSRecordTypeImpl.PropertySignatureImpl(name, jsFunctionType, true, false)
+        return PropertySignatureImpl(name, jsFunctionType, true, false)
     }
 }

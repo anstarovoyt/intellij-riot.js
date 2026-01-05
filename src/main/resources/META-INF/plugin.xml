@@ -63,7 +63,7 @@
         <stubElementTypeHolder order="last" class="intellij.riot.js.RiotStubElements" externalIdPrefix="Riot3TagJS:"/>
         <implicitUsageProvider implementation="intellij.riot.js.RiotImplicitUsageProvider"/>
         <xml.xmlExtension implementation="intellij.riot.xml.RiotXmlExtension"/>
-        <postStartupActivity implementation="intellij.riot.lang.RiotFileTypeReassignmentActivity"/>
+        <backgroundPostStartupActivity implementation="intellij.riot.lang.RiotFileTypeReassignmentActivity"/>
         <html.embeddedContentSupport implementation="intellij.riot.lang.RiotHtmlEmbeddedContentSupport"/>
     </extensions>
     <extensions defaultExtensionNs="JavaScript">

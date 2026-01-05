@@ -1,7 +1,6 @@
 package intellij.riot.lang.v3
 
 import com.intellij.lang.html.HTMLParserDefinition
-import com.intellij.lang.javascript.types.JSFileElementType
 import com.intellij.lexer.Lexer
 import com.intellij.openapi.project.Project
 import com.intellij.psi.FileViewProvider
@@ -32,6 +31,6 @@ class Riot3HtmlParserDefinition : HTMLParserDefinition() {
 
 class Riot3FileElementType : IStubFileElementType<PsiFileStub<HtmlFileImpl>>("Riot3File", Riot3HtmlLanguage.INSTANCE) {
     override fun getStubVersion(): Int {
-        return super.getStubVersion() + JSFileElementType.getVersion()
+        return super.getStubVersion() + 10
     }
 }

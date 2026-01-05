@@ -31,5 +31,5 @@ class RiotJSInjector : MultiHostInjector {
         }
     }
 
-    override fun elementsToInjectIn(): List<Class<out PsiElement>> = ContainerUtil.immutableList(XmlText::class.java, XmlAttributeValue::class.java)
+    override fun elementsToInjectIn(): List<Class<out PsiElement>> = listOf(XmlText::class.java, XmlAttributeValue::class.java)
 }

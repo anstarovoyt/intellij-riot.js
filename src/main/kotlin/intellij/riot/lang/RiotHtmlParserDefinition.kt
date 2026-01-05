@@ -24,6 +24,7 @@ class RiotHtmlParserDefinition : HTMLParserDefinition() {
         return RiotHtmlLexer()
     }
 
+    @Suppress("CompanionObjectInExtension")
     companion object {
         @JvmField
         internal val RIOT_FILE = RiotFileElementType()
@@ -32,6 +33,6 @@ class RiotHtmlParserDefinition : HTMLParserDefinition() {
 
 class RiotFileElementType : IStubFileElementType<PsiFileStub<HtmlFileImpl>>("RiotFile", RiotHtmlLanguage.INSTANCE) {
     override fun getStubVersion(): Int {
-        return super.getStubVersion() + JSFileElementType.getVersion()
+        return super.getStubVersion() + 10
     }
 }

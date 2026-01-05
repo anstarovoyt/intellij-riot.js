@@ -8,27 +8,32 @@ import com.intellij.openapi.application.WriteAction
 import com.intellij.openapi.fileTypes.FileType
 import com.intellij.openapi.fileTypes.FileTypeManager
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.startup.StartupActivity
+import com.intellij.openapi.startup.ProjectActivity
+import com.intellij.openapi.application.EDT
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import intellij.riot.lang.v3.Riot3HtmlFileType
 
-class RiotFileTypeReassignmentActivity : StartupActivity {
+class RiotFileTypeReassignmentActivity : ProjectActivity {
 
-    override fun runActivity(project: Project) {
+    override suspend fun execute(project: Project) {
         val property = "riot_reassign_file_type"
         if (PropertiesComponent.getInstance().getBoolean(property, false)) return
 
         val riotChanged = reAssign("riot", RiotHtmlFileType.INSTANCE)
         val tagChanged = reAssign("tag", Riot3HtmlFileType.INSTANCE)
         if (riotChanged || tagChanged) {
-            val groupDisplayId = "Riot notification"
-            val notificationTitle = "Riot File Type Updating"
-            val notificationMessage = "File Type associations are updated from 'HTML' to 'Riot Framework'"
-            val notificationType = NotificationType.INFORMATION
-            val notification = com.intellij.notification.Notification(groupDisplayId, notificationTitle, notificationMessage, notificationType)
-            Notifications.Bus.notify(notification)
+            withContext(Dispatchers.EDT) {
+                val groupDisplayId = "Riot notification"
+                val notificationTitle = "Riot File Type Updating"
+                val notificationMessage = "File Type associations are updated from 'HTML' to 'Riot Framework'"
+                val notificationType = NotificationType.INFORMATION
+                val notification = com.intellij.notification.Notification(groupDisplayId, notificationTitle, notificationMessage, notificationType)
+                Notifications.Bus.notify(notification)
+            }
         }
 
-        PropertiesComponent.getInstance().setValue(property, true, false)
+        PropertiesComponent.getInstance().setValue(property, true)
     }
 
     private fun reAssign(extension: String, fileType: FileType): Boolean {
