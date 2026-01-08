@@ -21,7 +21,7 @@ class RiotJSInjector : MultiHostInjector {
         }
         if (context is XmlAttributeValue) {
             val prevSibling = context.prevSibling
-            if (prevSibling == XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER && prevSibling.text == "{") {
+            if (prevSibling != null && prevSibling.node?.elementType == XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER && prevSibling.text == "{") {
                 registrar.startInjecting(RiotJSLanguage.INSTANCE, null).addPlace(null as String?, null as String?, 
                         context as PsiLanguageInjectionHost, 
                         TextRange(0, (context as PsiElement).textLength)).doneInjecting()

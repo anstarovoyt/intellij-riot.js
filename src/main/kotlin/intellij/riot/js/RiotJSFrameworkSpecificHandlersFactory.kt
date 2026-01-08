@@ -35,7 +35,6 @@ class RiotJSFrameworkSpecificHandlersFactory : JSFrameworkSpecificHandler {
         members.add(createSimpleTwoArgumentFunction("onMounted", simpleSource, anyType))
         members.add(createSimpleTwoArgumentFunction("onBeforeUpdate", simpleSource, anyType))
         members.add(createSimpleTwoArgumentFunction("onUpdated", simpleSource, anyType))
-        members.add(createSimpleTwoArgumentFunction("onUpdated", simpleSource, anyType))
         members.add(createSimpleTwoArgumentFunction("onBeforeUnmount", simpleSource, anyType))
         members.add(createSimpleTwoArgumentFunction("onUnmounted", simpleSource, anyType))
 

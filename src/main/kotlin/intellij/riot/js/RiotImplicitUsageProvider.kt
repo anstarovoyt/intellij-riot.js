@@ -16,8 +16,7 @@ class RiotImplicitUsageProvider : ImplicitUsageProvider {
     override fun isImplicitRead(psiElement: PsiElement): Boolean {
         if (psiElement !is ES6ExportDefaultAssignment) return false
 
-
-        return psiElement.containingFile.fileType is IRiotFileType
+        return psiElement.containingFile?.fileType is IRiotFileType
     }
 
     override fun isImplicitWrite(psiElement: PsiElement): Boolean {

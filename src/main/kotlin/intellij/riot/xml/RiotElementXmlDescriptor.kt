@@ -19,23 +19,23 @@ class RiotElementXmlDescriptor(private val parentNSDescriptor: XmlNSDescriptor?,
     override fun getDefaultValue(): String? = null
     override fun getName(p0: PsiElement?): String = name
     override fun getName(): String = tagName
-    override fun getElementsDescriptors(p0: XmlTag?): Array<XmlElementDescriptor>? = getXmlElementDescriptorFormParent(tag)?.getElementsDescriptors(p0)
+    override fun getElementsDescriptors(p0: XmlTag?): Array<XmlElementDescriptor>? = getXmlElementDescriptorFromParent(tag)?.getElementsDescriptors(p0)
     override fun init(p0: PsiElement?) {}
     override fun getContentType(): Int = XmlElementDescriptor.CONTENT_TYPE_UNKNOWN
     override fun getTopGroup(): XmlElementsGroup? = null
     override fun getDefaultName(): String = name
     override fun getNSDescriptor(): XmlNSDescriptor? = parentNSDescriptor
     override fun getQualifiedName(): String = name
-    override fun getElementDescriptor(p0: XmlTag?, p1: XmlTag?): XmlElementDescriptor? = getXmlElementDescriptorFormParent(p1)?.getElementDescriptor(p0, p1)
+    override fun getElementDescriptor(p0: XmlTag?, p1: XmlTag?): XmlElementDescriptor? = getXmlElementDescriptorFromParent(p1)?.getElementDescriptor(p0, p1)
     override fun getDeclaration(): PsiElement? {
-        return if (riotSpecialTags.contains(name)) tag else getXmlElementDescriptorFormParent(tag)?.declaration
+        return if (riotSpecialTags.contains(name)) tag else getXmlElementDescriptorFromParent(tag)?.declaration
     }
 
     override fun getAttributeDescriptor(p0: XmlAttribute?): XmlAttributeDescriptor? = getAttributeDescriptor(p0?.name, null)
-    override fun getAttributesDescriptors(p0: XmlTag?): Array<XmlAttributeDescriptor>? = getXmlElementDescriptorFormParent(p0)?.getAttributesDescriptors(p0)
+    override fun getAttributesDescriptors(p0: XmlTag?): Array<XmlAttributeDescriptor>? = getXmlElementDescriptorFromParent(p0)?.getAttributesDescriptors(p0)
 
     override fun getAttributeDescriptor(name: String?, context: XmlTag?): XmlAttributeDescriptor? {
-        val parent = getXmlElementDescriptorFormParent(context)
+        val parent = getXmlElementDescriptorFromParent(context)
 
         val attributeDescriptor = parent?.getAttributeDescriptor(name, context)
         if (attributeDescriptor != null) return attributeDescriptor
@@ -43,6 +43,6 @@ class RiotElementXmlDescriptor(private val parentNSDescriptor: XmlNSDescriptor?,
         return AnyXmlAttributeDescriptor(name)
     }
 
-    private fun getXmlElementDescriptorFormParent(context: XmlTag?): XmlElementDescriptor? =
+    private fun getXmlElementDescriptorFromParent(context: XmlTag?): XmlElementDescriptor? =
             parentNSDescriptor?.getElementDescriptor(context ?: tag)
 }
