@@ -3,13 +3,13 @@ import org.jetbrains.intellij.platform.gradle.TestFrameworkType
 
 plugins {
     id("java") // Java support
-    id("org.jetbrains.kotlin.jvm") version "2.3.0"
-    id("org.jetbrains.intellij.platform") version "2.10.5"
+    id("org.jetbrains.kotlin.jvm") version "2.3.20"
+    id("org.jetbrains.intellij.platform") version "2.13.1"
 }
 
 
-version = "1.1.253"
-group = "intellij.riot"
+version = "1.1.261"
+group = "riot.js"
 
 // Set the JVM language level used to build the project.
 kotlin {
@@ -20,7 +20,6 @@ kotlin {
 // Configure project's dependencies
 repositories {
     mavenCentral()
-//
     intellijPlatform {
         defaultRepositories()
         localPlatformArtifacts()
@@ -32,11 +31,32 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.opentest4j:opentest4j:1.3.0")
 
+
     intellijPlatform {
-        create("IU", "2025.3")
+        intellijIdea("261.22158.121")
 
         bundledPlugins(listOf("JavaScript", "com.intellij.css", "JavaScriptDebugger", "org.jetbrains.plugins.sass"))
+        testBundledPlugins(
+            listOf(
+                "JavaScript",
+                "com.intellij.css",
+                "com.intellij.modules.json",
+                "JavaScriptDebugger",
+                "org.jetbrains.plugins.sass"
+            )
+        )
 
         testFramework(TestFrameworkType.Platform)
+    }
+}
+
+intellijPlatform {
+    pluginConfiguration {
+        name = "Riot.js"
+        version = "1.1.261"
+        ideaVersion {
+            sinceBuild = "261"
+            untilBuild = "261.*"
+        }
     }
 }
