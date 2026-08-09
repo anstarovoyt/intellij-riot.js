@@ -10,6 +10,7 @@ class Riot3HtmlFileType : LanguageFileType(Riot3HtmlLanguage.INSTANCE), IRiotFil
     override fun getName(): String = "Riot3Html"
     override fun getDefaultExtension(): String = "tag"
     override fun getDescription(): String = "Riot framework 3- files"
+    override fun isTransparent(): Boolean = true
 
     companion object {
         @JvmField
