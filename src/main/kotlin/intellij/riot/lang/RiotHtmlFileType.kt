@@ -9,6 +9,7 @@ class RiotHtmlFileType : LanguageFileType(RiotHtmlLanguage.INSTANCE), IRiotFileT
     override fun getName(): String = "RiotHtml"
     override fun getDefaultExtension(): String = "riot"
     override fun getDescription(): String = "Riot framework 4+ files"
+    override fun isTransparent(): Boolean = true
     
     companion object {
         @JvmField
